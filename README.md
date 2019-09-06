@@ -100,7 +100,7 @@
 
 ---
 ### ER図
-#### https://www.draw.io/#G1g6mpTyBEtH90HQQrR3NL1onRSHuW7zsu
+#### https://docs.google.com/spreadsheets/d/1T1yAF_kymPoev5h5XnUFBwI2BTlpKePCk03NGDnfhCM/edit#gid=0
 
 
 ----
@@ -110,6 +110,6 @@
 ----
 ### ワイヤーフレーム
 
-https://xd.adobe.com/spec/71e89828-4f89-49c4-6899-59cf70870706-07d9/grid
+#### https://xd.adobe.com/spec/71e89828-4f89-49c4-6899-59cf70870706-07d9/grid
 
 ----
