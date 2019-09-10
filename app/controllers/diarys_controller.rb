@@ -19,4 +19,8 @@ class DiarysController < ApplicationController
 
   def index
   end
+
+  def top
+    render :layout => nil
+  end
 end
