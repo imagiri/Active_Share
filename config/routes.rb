@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :users
-  if user_signed_in?
-  root to: "diarys#index"
-  else
-  root to: "diarys#top"
+  devise_scope :user do
+  authenticated :user do
+    root :to => 'diarys#index', as: :authenticated_root
   end
+  unauthenticated :user do
+    root :to => 'diarys#top', as: :unauthenticated_root
+  end
+end
+
+  resources :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
