@@ -1,41 +1,42 @@
 <body class="session_body">
-<div class="session_back">
-<div class="session_content">
-<p><%= image_tag'top_logo2.png'%></p>
-<%= render "devise/shared/links" %>
+  <div class="header_bottom"></div>
+  <div class="session_back">
+    <div class="session_content">
+      <p><%= image_tag'top_logo2.png'%></p>
+      <%= render "devise/shared/links" %>
+
+      
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"サンプル太郎" %>
+      </div>
 
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"you@example.com" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"サンプル太郎" %>
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password",placeholder:"#{@minimum_password_length}文字以上" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+      <% end %>
+
+    </div>
   </div>
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"you@example.com" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password",placeholder:"#{@minimum_password_length}文字以上" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-  <% end %>
-
-</div>
-</div>
 </body>
