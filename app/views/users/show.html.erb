@@ -1,2 +1,23 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="user-show-top">
+<%= image_tag("top_background_image.jpg", class:"back-icon") %>
+<div class="icon-box">
+<%= image_tag("sample_icon.png", class:"icon") %>
+</div>
+</div>
+
+<div class="user-show-content">
+  <table align="center">
+    <tr class="user-show-name">
+      <td><h3><%=@user.name %></h3></td>
+      <td><%= link_to "編集する", edit_user_path(@user.id) %></td>
+    </tr>
+    <tr class="user-show-prof">
+      <td><%=@user.sex %></td>
+      <td><%=@user.age %></td>
+      <td><%=@user.activity_area %></td>
+      <td><%=@user.birth_plase %></td>
+      <td><%=@user.outdoor_history %></td>
+    </tr>
+  </table>
+
+</div>
