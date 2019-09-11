@@ -17,7 +17,7 @@
   <% @diaries.each do |diary| %>
   <table>
       <tr>
-        <tb><%= diary.title %></tb>
+        <tb><%=link_to diary.title, diary_path(diary.id) %></tb>
         <tb><%= diary.activity_date %></tb>
         <tb><%= diary.user.name %></tb>
       </tr>

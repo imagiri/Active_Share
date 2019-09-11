@@ -25,7 +25,9 @@
                   <%= current_user.name %></a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <p class="dropdown-item"><%= link_to "マイページ", user_path(current_user.id)%></p>
-                    <a class="dropdown-item" href="#">メニュー2</a>
+                    <p class="dropdown-item"><%= link_to "活動日記投稿", new_diary_path%></p>
+                    <p class="dropdown-item"><%= link_to "活動日記一覧", diaries_path%></p>
+
                     <div class="dropdown-divider"></div>
                     <p class="dropdown-item"><%= link_to "ログアウト",destroy_user_session_path, method: :delete%></p>
                     <% else %>

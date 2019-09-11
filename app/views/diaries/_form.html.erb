@@ -1,6 +1,9 @@
 <%= form_with(model: @diary, local: true) do |form| %>
   <%= form.hidden_field :user_id %>
-<table alogin="center">
+  <div class="new-body">
+    <div class="new-top"><h1>新規活動日記投稿</h1></div>
+  <div class="new-content">
+<table align="center">
   <tr>
     <th><%= form.label :title %></th>
     <td><%= form.text_field :title %></td>
@@ -29,5 +32,7 @@
   </tr>
 
 </table>
+</div>
+</div>
 
 <% end %>
