@@ -1,2 +1,2 @@
-module DiarysHelper
+module diariesHelper
 end

@@ -1,0 +1,33 @@
+<%= form_with(model: @diary, local: true) do |form| %>
+  <%= form.hidden_field :user_id %>
+<table alogin="center">
+  <tr>
+    <th><%= form.label :title %></th>
+    <td><%= form.text_field :title %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :activity_date %></th>
+    <td><%= form.date_select :activity_date %></td>
+  </tr>
+
+  <tr>
+    <th><%= form.label :content %></th>
+    <td><%= form.text_area :content %></td>
+  </tr>
+
+  <tr>
+    <td>タグ</td>
+  </tr>
+
+  <tr>
+    <td>画像</td>
+  </tr>
+
+  <tr>
+    <th><%= form.submit "投稿する" %></th>
+  </tr>
+
+</table>
+
+<% end %>
