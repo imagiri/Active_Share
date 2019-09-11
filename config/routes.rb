@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'taggings/create'
+  get 'tags/create'
+  get 'tags/new'
+  get 'tags/destroy'
   devise_for :users
   devise_scope :user do
   authenticated :user do
