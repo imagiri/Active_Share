@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-  def new
-  end
-
-  def create
-  end
+  before_action :set_user, only: [:show, :edit, :destroy, :update]
 
   def show
   end
@@ -15,8 +11,26 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.save(user_params)
+      redirect_to user_path(current_user.id), notice: "ユーザー情報を変更しました"
+    else
+      flash.now[:alert] = "ユーザー情報の更新に失敗しました"
+      render "edit"
+    end
   end
 
   def index
   end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :icon, :back_icon, :introduction, :sex, :age, :activity_area, :birth_plase, :outdoor_history)
+  end
+
+
 end
