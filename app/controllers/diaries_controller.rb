@@ -2,6 +2,7 @@ class DiariesController < ApplicationController
 
   def new
     @diary = Diary.new
+    @diary.tags.build
   end
 
   def create
