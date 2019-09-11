@@ -10,33 +10,33 @@
   </head>
 
   <body>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <!-- <a class="navbar-brand" href="#">ブランド</a> -->
-  <p class="navbar-brand"><%= link_to image_tag('top_icon.png')%></p>
-  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="Navber">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-      <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <%= current_user.name %></a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">メニュー1</a>
-          <a class="dropdown-item" href="#">メニュー2</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">その他</a>
-          <% else %>
-          <p class="header_link"><%= link_to "log in", new_user_session_path %></p>
-          <p class="header_link"><%= link_to "sign up", new_user_registration_path %></p>
-          <% end %>
-        </div>
-    </ul>
-  </div><!-- /.navbar-collapse -->
-</nav>
+      <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <!-- <a class="navbar-brand" href="#">ブランド</a> -->
+          <p class="navbar-brand"><%= link_to image_tag('top_icon.png')%></p>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="Navber">
+            <ul class="navbar-nav mr-auto">
+              <% if user_signed_in? %>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.name %></a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <p class="dropdown-item"><%= link_to "マイページ", user_path(current_user.id)%></p>
+                    <a class="dropdown-item" href="#">メニュー2</a>
+                    <div class="dropdown-divider"></div>
+                    <p class="dropdown-item"><%= link_to "ログアウト",destroy_user_session_path, method: :delete%></p>
+                    <% else %>
+                    <p class="header_link"><%= link_to "log in", new_user_session_path %></p>
+                    <p class="header_link"><%= link_to "sign up", new_user_registration_path %></p>
+                    <% end %>
+                  </div>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </nav>
+      </header>
 
     <% if notice %>
     <p class="alert alert-notice"><%= notice %></p>
@@ -44,7 +44,6 @@
     <% if alert %>
     <p class="alert alert-error"><%= alert %></p>
     <% end %>
-
     <%= yield %>
   </body>
 </html>

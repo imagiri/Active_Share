@@ -1,4 +1,9 @@
-<p><%= image_tag'top_logo2.png'%></p>
+<body class="session_body">
+<div class="header_bottom"></div>
+<div class="session_back">
+<div class="session_content">
+<p><%= image_tag'top_logo3.png'%></p>
+<%= render "devise/shared/links" %>
 
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -25,4 +30,6 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+</div>
+</body>
