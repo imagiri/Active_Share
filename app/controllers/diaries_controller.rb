@@ -26,7 +26,7 @@ class DiariesController < ApplicationController
   end
 
   def index
-    @diary = Diary.all
+    @diaries = Diary.all
   end
 
   def top

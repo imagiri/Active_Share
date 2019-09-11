@@ -1,2 +1,26 @@
-<h1>diaries#index</h1>
-<p>Find me in app/views/diaries/index.html.erb</p>
+<div class="index-top">
+  <h1>活動日記一覧ページ</h1>
+</div>
+
+<div class="side-bar">
+  <h2>検索用</h2>
+</div>
+
+<div class="index-content">
+  <table>
+    <tr>
+      <th>タイトル</th>
+      <th>活動日時</th>
+      <th>投稿者</th>
+    </tr>
+  </table>
+  <% @diaries.each do |diary| %>
+  <table>
+      <tr>
+        <tb><%= diary.title %></tb>
+        <tb><%= diary.activity_date %></tb>
+        <tb><%= diary.user.name %></tb>
+      </tr>
+    <% end %>
+  </table>
+</div>
