@@ -1,2 +1,63 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="user-edit">
+<div class="user-edit-top">
+<h1>ユーザー情報</h1>
+</div>
+
+<div class="user-edit-icon">
+<h3>プロフィール画像の更新</h3>
+  </div>
+
+<div class="user-edit-back-icon">
+  <h3>プロフィール背景画像の更新</h3>
+  </div>
+
+<%= form_with(model:@user, local:true) do |f| %>
+<div class="user-edit-content">
+<table align="center">
+  <tr class="name-content form-box">
+    <th><%=f.label :name %></th>
+    <td><%=f.text_field :name %></td>
+  </tr>
+
+  <tr class="introduction-content form-box">
+    <th><%=f.label :introduction %></th>
+    <td><%=f.text_area :introduction %></td>
+  </tr>
+
+  <tr class="sex-content form-box">
+    <th><%=f.label :sex %></th>
+    <td><%=f.select :sex, [:男, :女],class: 'form-control btn btn-info'  %></td>
+  </tr>
+
+  <tr class="age-content form-box">
+    <th><%=f.label :age %></th>
+    <td>
+      <%= f.select :age, User.ages.keys, class: 'form-control btn btn-info' %>
+    </td>
+  </tr>
+
+  <tr class="activity-area-content form-box">
+    <th><%=f.label :activity_area %></th>
+    <td>
+      <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
+      <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
+      <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
+    </td>
+  </tr>
+
+  <tr class="birth-place-content form-box">
+    <th><%=f.label :birth_place %></th>
+    <td>
+      <%= f.select :birth_place, User.birth_places.keys, class: 'form-control btn btn-info' %>
+    </td>
+  </tr>
+
+  <tr class="form-box">
+    <th></th>
+    <td><%= f.submit "更新する" %></td>
+  </tr>
+
+</table>
+</div>
+<% end %>
+</div>
