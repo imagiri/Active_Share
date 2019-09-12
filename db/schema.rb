@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_063333) do
+ActiveRecord::Schema.define(version: 2019_09_12_042759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_063333) do
     t.integer "sex", default: 1, null: false
     t.integer "age", default: 1, null: false
     t.integer "activity_area", default: 1, null: false
-    t.integer "birth_plase", default: 1, null: false
+    t.integer "birth_place", default: 1, null: false
     t.integer "outdoor_history", default: 1, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
