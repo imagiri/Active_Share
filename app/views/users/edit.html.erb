@@ -46,6 +46,13 @@
   </tr>
 
   <tr class="birth-place-content form-box">
+    <th><%=f.label :outdoor_history %></th>
+    <td>
+      <%= f.select :outdoor_history, User.outdoor_histories.keys, class: 'form-control btn btn-info' %>
+    </td>
+  </tr>
+
+  <tr class="birth-place-content form-box">
     <th><%=f.label :birth_place %></th>
     <td>
       <%= f.select :birth_place, User.birth_places.keys, class: 'form-control btn btn-info' %>
