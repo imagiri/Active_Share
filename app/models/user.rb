@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :diaries
 
+  
+
   enum sex: { 男: 1, 女: 2}
 
   enum age: {

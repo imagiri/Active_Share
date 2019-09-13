@@ -20,8 +20,12 @@ class UsersController < ApplicationController
   end
 
   def index
-  @search = User.ransack(params[:q])
-  @users = @search.result
+    @search = User.ransack(params[:q])
+    if params[:q]
+      @users = User.page(params[:page]).ransack(params[:q]).result
+    else
+      @users = User.page(params[:page])
+  end
   end
 
   private

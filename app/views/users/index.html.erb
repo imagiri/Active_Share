@@ -8,6 +8,13 @@
     <%= f.label :name_cont, "Name" %>
     <%= f.text_field :name_cont, class: "form-control" %>
   </div>
+  <div class="form-select-group">
+    <%= f.label :birth_place_cont, "birth_places" %>
+    <%= f.select :birth_place, User.birth_places.keys, {include_blank: true} %>
+    <%= f.label :age_cont, "age" %>
+    <%= f.select :age, User.ages.keys, {include_blank: true} %>
+  </div>
+
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 </div>
@@ -29,4 +36,7 @@
       </tr>
     <% end %>
   </table>
+  <div class="paginate">
+        <%= paginate @users -%>
+  </div>
 </div>
