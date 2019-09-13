@@ -3,7 +3,16 @@
 </div>
 
 <div class="diary-index-side">
-  <h2>検索用</h2>
+  <%= search_form_for @search do |f| %>
+  <div class="form-group">
+    <%= f.label :title_cont, "title" %>
+    <%= f.text_field :title_cont, class: "form-control" %>
+  </div>
+  <div class="form-select-group">
+  </div>
+
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
 </div>
 
 <div class="diary-index-content">
