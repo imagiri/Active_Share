@@ -1,2 +1,42 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="diary-index-top">
+  <h1>活動日記一覧ページ</h1>
+</div>
+
+<div class="diary-index-side">
+  <%= search_form_for @search do |f| %>
+  <div class="form-group">
+    <%= f.label :name_cont, "Name" %>
+    <%= f.text_field :name_cont, class: "form-control" %>
+  </div>
+  <div class="form-select-group">
+    <%= f.label :birth_place_cont, "birth_places" %>
+    <%= f.select :birth_place, User.birth_places.keys, {include_blank: true} %>
+    <%= f.label :age_cont, "age" %>
+    <%= f.select :age, User.ages.keys, {include_blank: true} %>
+  </div>
+
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+</div>
+
+<div class="diary-index-content">
+  <table>
+    <tr>
+      <th>ユーザー名</th>
+      <th>年齢</th>
+      <th>出身地</th>
+    </tr>
+  </table>
+  <% @users.each do |user| %>
+  <table>
+      <tr>
+        <tb><%=link_to user.name, user_path(user.id) %></tb>
+        <tb><%= user.age %></tb>
+        <tb><%= user.birth_place %></tb>
+      </tr>
+    <% end %>
+  </table>
+  <div class="paginate">
+        <%= paginate @users -%>
+  </div>
+</div>

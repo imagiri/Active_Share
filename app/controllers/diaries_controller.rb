@@ -2,6 +2,7 @@ class DiariesController < ApplicationController
 
   def new
     @diary = Diary.new
+    @diary.tags.build
   end
 
   def create
@@ -26,7 +27,12 @@ class DiariesController < ApplicationController
   end
 
   def index
-    @diaries = Diary.all
+    @search = Diary.ransack(params[:q])
+    if params[:q]
+      @diaries = Diary.page(params[:page]).ransack(params[:q]).result
+    else
+      @diaries = Diary.page(params[:page])
+    end
   end
 
   def top
