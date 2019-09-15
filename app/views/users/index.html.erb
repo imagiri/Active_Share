@@ -1,8 +1,8 @@
-<div class="diary-index-top">
-  <h1>活動日記一覧ページ</h1>
+<div class="user-index-top">
+  <h1>ユーザー一覧ページ</h1>
 </div>
 
-<div class="diary-index-side">
+<div class="index-side">
   <%= search_form_for @search do |f| %>
   <div class="form-group">
     <%= f.label :name_cont, "Name" %>
@@ -19,23 +19,17 @@
 <% end %>
 </div>
 
-<div class="diary-index-content">
-  <table>
-    <tr>
-      <th>ユーザー名</th>
-      <th>年齢</th>
-      <th>出身地</th>
-    </tr>
-  </table>
+<div class="index-content">
   <% @users.each do |user| %>
-  <table>
-      <tr>
-        <tb><%=link_to user.name, user_path(user.id) %></tb>
-        <tb><%= user.age %></tb>
-        <tb><%= user.birth_place %></tb>
-      </tr>
+  <%= link_to(user_path(user.id)) do %>
+  <div class="user-index-show">
+        <%= image_tag("sample_icon.png",size: 100) %>
+        <p><%=link_to user.name, user_path(user.id) %></p>
+        <%= user.age %>
+        <%= user.birth_place %>
+        </div>
     <% end %>
-  </table>
+    <% end %>
   <div class="paginate">
         <%= paginate @users -%>
   </div>
