@@ -19,8 +19,10 @@
     <td><%= form.text_area :content %></td>
   </tr>
 
-  <tr>
-    <td>タグ</td>
+  <tr class="diary-tags-field">
+      <%= form.label "タグ名" %>
+      <ul id="diary-tags">
+      </ul>
   </tr>
 
   <tr>

@@ -7,10 +7,13 @@ class DiariesController < ApplicationController
 
   def create
     @diary = current_user.diaries.build(diaries_params)
+    tag_list = params[:tag_list].split(",")
     if @diary.save
-      redirect_to diaries_path, notice: "新規の活動日記を投稿しました"
+      @diary.save_tags(tag_list)
+      flash[:success] = "日記を投稿しました"
+      redirect_to diaries_url
     else
-      render "new"
+      render 'diaries/new'
     end
   end
 
