@@ -1,0 +1,26 @@
+// Place all the styles related to the diaries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-top{
+  text-align: center;
+  // margin-bottom: 30px;
+}
+
+.index-side{
+  width:20%;
+  height: 800px;
+  position: absolute;
+  left: 20px;
+  text-align: center;
+  clear: both;
+  background-color: #C0C0C0;
+  border: dashed brack;
+}
+
+.index-content{
+  width: 75%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
