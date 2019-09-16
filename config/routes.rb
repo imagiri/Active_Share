@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'taggings/create'
-  get 'tags/create'
-  get 'tags/new'
-  get 'tags/destroy'
+
   devise_for :users
   devise_scope :user do
   authenticated :user do
@@ -15,6 +12,6 @@ end
 
   resources :users
   resources :diaries
-
+  resources :tags, only:[:new,:create,:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

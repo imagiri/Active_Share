@@ -3,36 +3,39 @@
   <div class="new-body">
     <div class="new-top"><h1>新規活動日記投稿</h1></div>
   <div class="new-content">
-<table align="center">
-  <tr>
-    <th><%= form.label :title %></th>
-    <td><%= form.text_field :title %></td>
-  </tr>
 
-  <tr>
-    <th><%= form.label :activity_date %></th>
-    <td><%= form.date_select :activity_date %></td>
-  </tr>
+  <div class="new-title-content">
+    <p><%= form.label :title %></p>
+    <p><%= form.text_field :title %></p>
+  </div>
 
-  <tr>
-    <th><%= form.label :content %></th>
-    <td><%= form.text_area :content %></td>
-  </tr>
+  <div class="new-activity_date-content">
+    <p><%= form.label :activity_date %></p>
+    <p><%= form.date_select :activity_date %></p>
+  </div>
 
-  <tr>
-    <td>タグ</td>
-  </tr>
+  <div class="new-content-content">
+    <p><%= form.label :content %></p>
+    <p><%= form.text_area :content %></p>
+  </div>
 
-  <tr>
-    <td>画像</td>
-  </tr>
+  <div class="diary-tags-field">
+    <%= form.label "タグ名" %>
+    <div class="add-tag-field">
+      <ul id="diary-tags"></ul>
+    </div>
+  </div>
 
-  <tr>
-    <th><%= form.submit "投稿する" %></th>
-  </tr>
+  <div>
+  <p>画像</p>
+  <div class="diary-image-field"></div>
+  </div>
 
-</table>
-</div>
+  <div class="new-submit">
+    <p><%= form.submit "投稿する" %></p>
+  </div>
+
 </div>
 
 <% end %>
+</div>

@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
+//= diaries.coffee
+//= require jquery-ui
+//= require tag-it
 //= require_tree .
