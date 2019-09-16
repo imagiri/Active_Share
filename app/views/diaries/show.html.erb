@@ -38,7 +38,16 @@
 
   <div class="diary-show-comment">
     <p>コメント</p>
-    <div class="diary-show-comment-area">
+      <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+      <div id="comments_area">
+        <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+        <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
+      </div>
+      <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
+    <%= link_to '編集', edit_diary_path(@diary) %> |
+    <%= link_to '戻る', diaries_path %>
+
   </div>
 
 </div>
