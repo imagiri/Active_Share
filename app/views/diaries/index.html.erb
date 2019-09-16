@@ -29,6 +29,10 @@
         <tb><%= diary.activity_date %></tb>
         <tb><%= diary.user.name %></tb>
       </tr>
+      <tr>
+        <td><%= link_to "編集", edit_diary_path(diary.id) %></td>
+        <td><%= link_to "削除", diary_path(diary.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%></td>
+      </tr>
     <% end %>
   </table>
 </div>
