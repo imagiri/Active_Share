@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.save(user_params)
+    if @user.update(user_params)
       redirect_to user_path(current_user.id), notice: "ユーザー情報を変更しました"
     else
       flash.now[:alert] = "ユーザー情報の更新に失敗しました"
