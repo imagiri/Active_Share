@@ -1,0 +1,50 @@
+.new-body{
+  margin: 5%;
+  position: relative;
+}
+
+.new-body p{
+  margin-bottom: 10px;
+}
+
+.new-content{
+  text-align: left;
+  position: absolute;
+  left: 0;
+}
+
+
+#diary_title{
+        width: 800px;
+        height: 40px;
+    }
+
+.new-activity_date-content select{
+        width: 100px;
+        height: 30px;
+}
+
+#diary_content {
+        width: 800px;
+        height: 300px;
+    }
+
+.tagit-label{
+}
+.ui-autocomplete-input{
+  width: 300px;
+  height: 40px;
+  margin-bottom: 5%;
+}
+
+.diary-image-field{
+  height: 150px;
+  width: 800px;
+  border:dashed red;
+  text-align: center;
+}
+
+.new-submit{
+  margin-top: 50px;
+  text-align: center;
+}
