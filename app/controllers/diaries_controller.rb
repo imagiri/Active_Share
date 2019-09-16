@@ -1,4 +1,5 @@
 class DiariesController < ApplicationController
+before_action :set_diary, only: [:show, :edit, :destroy, :update]
 
   def new
     @diary = Diary.new
@@ -18,15 +19,25 @@ class DiariesController < ApplicationController
   end
 
   def show
+    @tag_list = @diary.tags.pluck(:tag_name)
   end
 
   def edit
+    @tag_list = @diary.tags.pluck(:tag_name).join(",")
   end
 
   def destroy
   end
 
   def update
+    tag_list = params[:tag_list].split(",")
+    if @diary.update_attributes(diaries_params)
+      @diary.save_tags(tag_list)
+      flash[:success] = "日記を編集しました"
+      redirect_to diaries_url
+    else
+      render 'edit'
+    end
   end
 
   def index
@@ -45,5 +56,9 @@ class DiariesController < ApplicationController
   private
   def diaries_params
     params.require(:diary).permit(:content, :title, :activity_date, :user_id)
+  end
+
+  def set_diary
+    @diary = Diary.find(params[:id])
   end
 end
