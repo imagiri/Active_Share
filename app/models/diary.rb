@@ -3,6 +3,7 @@ class Diary < ApplicationRecord
 
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings, source: :tag
+  has_many :comments, dependent: :destroy
 
   def save_tags(tags)
   current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?

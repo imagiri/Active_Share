@@ -20,6 +20,8 @@ before_action :set_diary, only: [:show, :edit, :destroy, :update]
 
   def show
     @tag_list = @diary.tags.pluck(:tag_name)
+    @comments = @diary.comments
+    @comment = @diary.comments.build
   end
 
   def edit

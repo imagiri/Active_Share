@@ -1,0 +1,28 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-area{
+  width:100%;
+  min-height:50px;
+  position: relative;
+  margin-bottom: 5%;
+}
+
+.remark-content{
+  position: relative;
+  padding: 25px;
+  background-color: #fff3ad;
+  border-radius: 10px;
+
+}
+.remark-user{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#comment_content{
+  width: 100%;
+  min-height: 150px;
+}

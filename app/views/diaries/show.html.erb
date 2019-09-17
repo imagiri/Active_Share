@@ -1,15 +1,54 @@
-<div class="diary-show-top">
-  <h1>活動日記詳細画面</h1>
-  <p><%= @diary.title %></p>
-  <p><%= @diary.user.name %></p>
+  <div class="new-body">
+    <div class="new-top">
+      <div class="user-show-top">
+      <%= image_tag("top_background_image.jpg", class:"back-icon") %>
+      </div>
+    </div>
+  <div class="new-content">
+
+  <div class="new-title-content">
+    <h2><%= @diary.title %></h2>
+  </div>
+
+  <div class="show-user">
+    <p><%=@diary.user.name %></p>
+  </div>
+
+  <div class="new-activity_date-content">
+    <p>活動日時</p>
+    <p><%= @diary.activity_date %></p>
+  </div>
+
+  <div class="new-content-content">
+    <p>活動内容</p>
+    <p><%= @diary.content %></p>
+  </div>
+
+  <div class="diary-tags-field">
+    <p>登録タグ</p>
+    <% @tag_list.each do |tag| %>
+    <p><%= tag %></p>
+    <% end %>
+  </div>
+
+  <div>
+  <p>画像</p>
+  <div class="diary-image-field"></div>
+  </div>
+  <div class="diary-show-comment">
+    <p>コメント</p>
+      <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+      <div id="comments_area">
+        <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+        <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
+      </div>
+      <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
+    <%= link_to '編集', edit_diary_path(@diary) %> |
+    <%= link_to '活動日記一覧画面へ', diaries_path %>
+
+  </div>
+
 </div>
 
-<table>
-  <tr>
-    <th><h1>@diary.title</h1></th>
-  </tr>
-
-  <tr>
-    <th><h1>@diary.title</h1></th>
-  </tr>
-</table>
+</div>
