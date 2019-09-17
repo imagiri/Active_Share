@@ -1,8 +1,12 @@
 <ul>
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
-      <li>
-        <p><%= comment.content %></p>
+      <li class="comment-area">
+        <p class="remark-content"><%= comment.content %></p>
+        <p class ="remark-user">
+          <%= link_to comment.user.name, user_path(comment.user.id) %>
+          <%= comment.created_at %>
+        </p>
       </li>
     <% end %>
   <% end %>
