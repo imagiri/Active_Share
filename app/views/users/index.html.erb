@@ -23,11 +23,12 @@
   <% @users.each do |user| %>
   <%= link_to(user_path(user.id)) do %>
   <div class="user-index-show">
-        <%= image_tag("sample_icon.png",size: 100) %>
-        <p><%=link_to user.name, user_path(user.id) %></p>
-        <%= user.age %>
-        <%= user.birth_place %>
-        </div>
+    <%= image_tag("sample_icon.png",size: 100) %>
+    <p><%=link_to user.name, user_path(user.id) %></p>
+    <%= user.age %>
+    <%= user.birth_place %>
+    <%= render partial: 'users/follow_form', locals: { user: user} %>
+  </div>
     <% end %>
     <% end %>
   <div class="paginate">
