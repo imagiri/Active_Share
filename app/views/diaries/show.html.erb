@@ -35,7 +35,6 @@
   <p>画像</p>
   <div class="diary-image-field"></div>
   </div>
-
   <div class="diary-show-comment">
     <p>コメント</p>
       <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
@@ -46,7 +45,7 @@
       <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
     <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
     <%= link_to '編集', edit_diary_path(@diary) %> |
-    <%= link_to '戻る', diaries_path %>
+    <%= link_to '活動日記一覧画面へ', diaries_path %>
 
   </div>
 

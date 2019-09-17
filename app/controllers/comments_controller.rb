@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
   def create
    @diary = Diary.find(params[:diary_id])
    @comment = @diary.comments.build(comment_params)
+   @comment.user_id = current_user.id
+
    respond_to do |format|
      if @comment.save
        format.js { render :index }
@@ -14,6 +16,6 @@ end
 
   private
   def comment_params
-    params.require(:comment).permit(:diary_id, :content)
+    params.require(:comment).permit(:diary_id, :user_id, :content)
   end
 end
