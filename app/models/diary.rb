@@ -6,6 +6,7 @@ class Diary < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
+  has_many :images, dependent: :destroy
 
 
   def save_tags(tags)
