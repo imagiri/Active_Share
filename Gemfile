@@ -67,3 +67,5 @@ end
   gem 'ransack', '~> 2.1.1'
   gem 'kaminari'
   gem 'jquery-ui-rails'
+  gem 'carrierwave'
+  gem 'mini_magick'
