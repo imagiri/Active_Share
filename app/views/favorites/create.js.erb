@@ -1,0 +1,1 @@
+$("#favorite-btn<%= @diary.id %>").html("<%= j(render partial: 'diaries/favorites_form', locals: { diary: @diary, favorite: @favorite}) %>")

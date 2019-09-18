@@ -8,6 +8,9 @@
 
   <div class="new-title-content">
     <h2><%= @diary.title %></h2>
+    <div id="favorite_btn">
+        <%= render 'favorite_form', diary: @diary, favorite: @favorite %>
+    </div>
   </div>
 
   <div class="show-user">
@@ -30,7 +33,6 @@
     <p><%= tag %></p>
     <% end %>
   </div>
-
   <div>
   <p>画像</p>
   <div class="diary-image-field"></div>
