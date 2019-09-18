@@ -1,9 +1,0 @@
-<div id="favorite_form_<%= @diary.id %>">
-<% unless @diary.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(diary_id: @diary.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
-</div>

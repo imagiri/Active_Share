@@ -1,1 +1,1 @@
-$("#favorite_form_"+"<%= diary.id %>").html("<%= escape_javascript(render partial: 'diaries/favorite_form', locals: { favorite: @favorite, diary: @diary, user: @user } ) %>")
+$("#favorite-btn<%= @diary.id %>").html("<%= j(render partial: 'diaries/favorites_form', locals: { diary: @diary, favorite: @favorite}) %>")

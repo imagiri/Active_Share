@@ -22,6 +22,7 @@ before_action :set_diary, only: [:show, :edit, :destroy, :update]
     @tag_list = @diary.tags.pluck(:tag_name)
     @comments = @diary.comments
     @comment = @diary.comments.build
+    @favorite = current_user.favorites.find_by(diary_id: @diary.id)
   end
 
   def edit
@@ -29,6 +30,7 @@ before_action :set_diary, only: [:show, :edit, :destroy, :update]
   end
 
   def destroy
+
   end
 
   def update
