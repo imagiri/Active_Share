@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  main_image: MyString
+  sub_image: MyString
+  memo: MyText
+  diary: one
+
+two:
+  main_image: MyString
+  sub_image: MyString
+  memo: MyText
+  diary: two

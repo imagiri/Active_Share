@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_051247) do
+ActiveRecord::Schema.define(version: 2019_09_18_071751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2019_09_17_051247) do
     t.datetime "updated_at", null: false
     t.index ["diary_id"], name: "index_favorites_on_diary_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "main_image"
+    t.string "sub_image"
+    t.text "memo"
+    t.bigint "diary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diary_id"], name: "index_images_on_diary_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -95,6 +105,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_051247) do
   add_foreign_key "diaries", "users"
   add_foreign_key "favorites", "diaries"
   add_foreign_key "favorites", "users"
+  add_foreign_key "images", "diaries"
   add_foreign_key "taggings", "diaries"
   add_foreign_key "taggings", "tags"
 end
