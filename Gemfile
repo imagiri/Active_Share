@@ -69,3 +69,4 @@ end
   gem 'jquery-ui-rails'
   gem 'carrierwave'
   gem 'mini_magick'
+  gem 'delayed_job_active_record'
