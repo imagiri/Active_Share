@@ -1,7 +1,7 @@
 <div class="user-show-top">
-<%= image_tag("top_background_image.jpg", class:"back-icon") %>
+<%= image_tag(@user.back_icon.url, class:"back-icon") %>
 <div class="icon-box">
-<%= image_tag("sample_icon.png", class:"icon") %>
+<%= image_tag(@user.icon.url, class:"icon") %>
 </div>
 </div>
 
@@ -24,8 +24,9 @@
       <td><%=@user.activity_area %></td>
     </tr>
   </table>
-    <div class=""
+    <div class="user-show-history">
       <p><%=@user.outdoor_history %></p>
+    </div>
     <div class="user-show-introduction">
       <p><%= @user.introduction %></p>
   </div>

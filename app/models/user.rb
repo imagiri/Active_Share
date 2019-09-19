@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :icon, ImageUploader
+  mount_uploader :back_icon, ImageUploader
+
+
+
   has_many :diaries
   has_many :comments, dependent: :destroy
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
@@ -12,6 +17,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :favorites, dependent: :destroy
   has_many :favorite_diaries, through: :favorites, source: :diary
+
 
 
   enum sex: { 男: 1, 女: 2}
