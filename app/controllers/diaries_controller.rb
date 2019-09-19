@@ -4,6 +4,7 @@ before_action :set_diary, only: [:show, :edit, :destroy, :update]
   def new
     @diary = Diary.new
     @diary.tags.build
+    @image = @diary.images.build
   end
 
   def create
@@ -30,7 +31,8 @@ before_action :set_diary, only: [:show, :edit, :destroy, :update]
   end
 
   def destroy
-
+    @diary.destroy
+    redirect_to diaries_path, notice: "活動日記を削除しました"
   end
 
   def update

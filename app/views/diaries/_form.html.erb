@@ -1,4 +1,4 @@
-<%= form_with(model: @diary, local: true) do |form| %>
+<%= form_with(model: @diary,local: true) do |form| %>
   <%= form.hidden_field :user_id %>
   <div class="new-body">
     <div class="new-top"><h1>新規活動日記投稿</h1></div>
@@ -26,9 +26,12 @@
     </div>
   </div>
 
+  <%= render partial: 'images/form', locals: { image: @image} %>
+
   <div>
-  <p>画像</p>
-  <div class="diary-image-field"></div>
+    <%= form.label :main_image %>
+  <div id="diary-image-field"></div>
+    <%= form.file_field :main_image %>
   </div>
 
   <div class="new-submit">
@@ -36,6 +39,5 @@
   </div>
 
 </div>
-
 <% end %>
 </div>
