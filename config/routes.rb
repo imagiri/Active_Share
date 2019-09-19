@@ -13,7 +13,9 @@ end
   resources :users
   resources :diaries do
     resources :comments, only:[:create,:index]
+    resources :images, only:[:create,:destroy,:index]
   end
+
   resources :favorites, only:[:create,:destroy]
 
   resources :tags, only:[:new,:create,:destroy]

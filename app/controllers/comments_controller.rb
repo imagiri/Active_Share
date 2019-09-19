@@ -18,4 +18,5 @@ end
   def comment_params
     params.require(:comment).permit(:diary_id, :user_id, :content)
   end
+
 end
