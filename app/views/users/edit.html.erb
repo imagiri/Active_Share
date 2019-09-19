@@ -2,16 +2,17 @@
 <div class="user-edit-top">
 <h1>ユーザー情報</h1>
 </div>
-
-<div class="user-edit-icon">
-<h3>プロフィール画像の更新</h3>
-  </div>
-
-<div class="user-edit-back-icon">
-  <h3>プロフィール背景画像の更新</h3>
-  </div>
-
 <%= form_with(model:@user, local:true) do |f| %>
+<div class="user-edit-icon">
+  <%= f.label :icon %>
+  <%= f.file_field :icon %>
+</div>
+
+  <div class="user-edit-back-icon">
+    <%= f.label :back_icon %>
+    <%= f.file_field :back_icon %>
+  </div>
+
 <div class="user-edit-content">
 <table align="center">
   <tr class="name-content form-box">
