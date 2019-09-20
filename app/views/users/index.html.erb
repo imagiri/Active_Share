@@ -1,22 +1,24 @@
 <div class="index-top">
   <h1>ユーザー一覧ページ</h1>
 </div>
-
+<div class="index-body">
 <div class="index-side">
   <%= search_form_for @search do |f| %>
   <div class="form-group">
     <%= f.label :name_cont, "Name" %>
     <%= f.text_field :name_cont, class: "form-control" %>
-  </div>
-  <div class="form-select-group">
-    <%= f.label :birth_place_cont, "birth_places" %>
-    <%= f.select :birth_place, User.birth_places.keys, {include_blank: true} %>
-    <%= f.label :age_cont, "age" %>
-    <%= f.select :age, User.ages.keys, {include_blank: true} %>
+    <div class="birth-form">
+      <p><%= f.label :birth_place_cont, "birth_places" %></p>
+      <p><%= f.select :birth_place, User.birth_places.keys, {include_blank: true} %></p>
+    </div>
+    <div class="age-form"
+      <p><%= f.label :age_cont, "age" %></p>
+      <p><%= f.select :age, User.ages.keys, {include_blank: true} %></p>
   </div>
 
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
+</div>
 </div>
 
 <div class="index-content">
@@ -34,4 +36,5 @@
   <div class="paginate">
         <%= paginate @users -%>
   </div>
+</div>
 </div>
