@@ -1,26 +1,63 @@
 // Place all the styles related to the diaries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+.index-body{
+  display: flex;
+  display: -webkit-flex;
+  width: 100%;
+}
 .index-top{
   text-align: center;
+  margin-top: 5%;
   // margin-bottom: 30px;
 }
 
 .index-side{
   width:20%;
-  height: 800px;
-  position: absolute;
-  left: 20px;
+  height: 500px;
+  display: block;
   text-align: center;
-  clear: both;
   background-color: #C0C0C0;
-  border: dashed brack;
+  border: solid;
+  border-radius: 2em;
+  position: sticky;
+  margin-bottom: 0;
+  margin-left: 2%;
+  margin-right: 2%;
+  top: 10px;
+  z-index: 1;
+
 }
 
 .index-content{
   width: 75%;
   height: 100%;
-  position: absolute;
+  display: block;
   right: 0;
+}
+.form-group{
+  padding: 10%;
+}
+
+.form-group p{
+  margin: 1%;
+}
+
+.age-form{
+  display: flex;
+
+  display: block;
+}
+
+.index-side input{
+  border-radius: 2em;
+  width: 100%;
+  margin: 0;
+}
+
+.index-side select{
+  border-radius: 2em;
+  width: 30%;
+  height: 30px;
+  margin: 0;
 }
