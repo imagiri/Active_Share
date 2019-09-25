@@ -14,17 +14,19 @@ max-height: 100%;
   position: absolute;
   top:40%;
   left: 40%;
-  max-width: 20%;
-  max-height: 20%;
+  // min-width: 15%;
+  // min-height: 15%;
+  width: 250px;
+  height: 250px;
   background-color: white;
   border: thick double black;
   border-radius: 10em;
 }
 
 .icon{
-  max-width: 100%;
+  width: 100%;
   max-height: 100%;
-
+  border-radius: 10em;
 }
 
 .user-show-content{
@@ -43,4 +45,15 @@ max-height: 100%;
 
 .user-show-introduction{
   margin-top: 2%;
+}
+
+
+.tab-content{
+  padding-left: 15%;
+  padding-left: 15%;
+}
+
+span{
+  padding-right: 10px;
+  font-weight: bold;
 }

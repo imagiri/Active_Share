@@ -47,7 +47,7 @@ before_action :set_diary, only: [:show, :edit, :destroy, :update]
   end
 
   def index
-    @search = Diary.ransack(params[:q])
+    @search = Diary.includes(:user).references(:user).ransack(params[:q])
     if params[:q]
       @diaries = Diary.page(params[:page]).ransack(params[:q]).result
     else
