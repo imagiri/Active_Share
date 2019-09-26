@@ -3,15 +3,24 @@
 <h1>ユーザー情報</h1>
 </div>
 <%= form_with(model:@user, local:true) do |f| %>
-<div class="user-edit-icon">
-  <%= f.label :icon %>
-  <%= f.file_field :icon %>
-</div>
 
-  <div class="user-edit-back-icon">
+  <div class="user-show-top">
+    <div class="icon-box">
+    <%= image_tag @user.icon.url,class: "icon" %>
+    </div>
+
+    <!-- <div class="back-icon"> -->
+    <%= image_tag @user.back_icon.url, class:"back-icon" %>
+    <!-- </div> -->
+
+    <div class="img-form">
+    <%= f.label :icon %>
+    <%= f.file_field :icon, id: "user_image" %>
     <%= f.label :back_icon %>
-    <%= f.file_field :back_icon %>
+    <%= f.file_field :back_icon, id: "user_image" %>
+    </div>
   </div>
+
 
 <div class="user-edit-content">
 <table align="center">
