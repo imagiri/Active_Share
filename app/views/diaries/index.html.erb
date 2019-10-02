@@ -21,12 +21,11 @@
 <% end %>
 </div>
 
-
 <div class="index-content">
   <% @diaries.each do |diary| %>
         <%=link_to diary_path(diary.id) do %>
         <div class="diary-index-show">
-          <%= image_tag("sample_icon.png",class:"diary-index-image") %>
+            <%= image_tag(diary.main_image.url,class:"diary-index-image") %>
         <p><%= diary.title %></p>
         <% end %>
         <p class="inde"><%= diary.activity_date %></p>

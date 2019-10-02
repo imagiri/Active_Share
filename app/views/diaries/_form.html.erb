@@ -26,16 +26,27 @@
     </div>
   </div>
 
-  <%= render partial: 'images/form', locals: { image: @image} %>
+    <div class="diary-image-field" id="main_image_view" onClick="$('#main_image').click()">
+    <%= image_tag @diary.main_image.url, class: "back-icon" %>
+    </div>
 
-  <div>
+    <div class="img-form">
     <%= form.label :main_image %>
-  <div id="diary-image-field"></div>
-    <%= form.file_field :main_image %>
-  </div>
+    <%= form.file_field :main_image, id: :main_image %>
+    <%= form.label :sub_image %>
+    <%= form.file_field :sub_image,　id: :sub_image, multiple: true %>
+    </div>
+
+    <!-- <div class="sub-image-area"> -->
+    <%# <%= image_tag @diary.sub_image.url %> %>
+    <!-- </div> -->
 
   <div class="new-submit">
     <p><%= form.submit "投稿する" %></p>
+  </div>
+
+  <div class="diary-sub-image-field" id="sub_image_view" onClick="$('#sub_image').click()">
+      <%# <%= image_tag @diary.sub_image[0], class: "sub-image" %> %>
   </div>
 
 </div>

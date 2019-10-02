@@ -1,7 +1,7 @@
   <div class="new-body">
     <div class="new-top">
       <div class="user-show-top">
-      <%= image_tag(, class:"back-icon") %>
+      <%= image_tag(@diary.main_image.url, class:"back-icon") %>
       </div>
     </div>
   <div class="new-content">
@@ -35,7 +35,15 @@
   </div>
   <div>
   <p>画像</p>
-  <div class="diary-image-field"></div>
+    <div class="sub-image-field">
+      <% @diary.sub_image.each do |diary| %>
+      <div class="sub_image_box">
+        <a href=<%= diary.url %> class="img-group cboxElement">
+        <%= image_tag diary.url, class: "sub_image" %>
+        </a>
+      </div>
+      <% end %>
+    </div>
   </div>
   <div class="diary-show-comment">
     <p>コメント</p>
