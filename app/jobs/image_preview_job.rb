@@ -5,7 +5,7 @@ class ImagePreviewJob < ApplicationJob
       <% images.each do |image| %>
         <% if image.id.present? %>
           <li class="image-area">
-            <p class="image-content"><%= image_tag image.main_image %></p>
+            <p class="image-content"><%= image_tag image.main_image.url %></p>
           </li>
           <% else %>
           <li class="image-area">

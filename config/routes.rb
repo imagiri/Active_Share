@@ -13,8 +13,8 @@ end
   resources :users
   resources :diaries do
     resources :comments, only:[:create,:index]
-    resources :images, only:[:create,:destroy,:index]
   end
+  resources :images, only:[:new,:create,:destroy,:index]
 
   resources :favorites, only:[:create,:destroy]
 
