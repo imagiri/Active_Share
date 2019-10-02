@@ -5,19 +5,19 @@
 <%= form_with(model:@user, local:true) do |f| %>
 
   <div class="user-show-top">
-    <div class="icon-box">
-    <%= image_tag @user.icon.url,class: "icon" %>
+    <div class="icon-box" id="icon_view" onClick="$('#icon').click()">
+      <%= image_tag @user.icon.url,class: "icon", id: :icon_img_prev %>
     </div>
 
-    <!-- <div class="back-icon"> -->
-    <%= image_tag @user.back_icon.url, class:"back-icon" %>
-    <!-- </div> -->
+    <div id="back_icon_view" onClick="$('#back_icon').click()">
+      <%= image_tag @user.back_icon.url, class:"back-icon view_box user-show-top", id: :back_img_prev %>
+    </div>
 
     <div class="img-form">
     <%= f.label :icon %>
-    <%= f.file_field :icon, id: "user_image" %>
+    <%= f.file_field :icon, id: :icon, type: :file %>
     <%= f.label :back_icon %>
-    <%= f.file_field :back_icon, id: "user_image" %>
+    <%= f.file_field :back_icon, id: :back_icon, type: :file %>
     </div>
   </div>
 

@@ -1,7 +1,7 @@
 <div class="user-show-top">
 <%= image_tag(@user.back_icon.url, class:"back-icon") %>
 <div class="icon-box">
-<%= image_tag(@user.icon.url, class:"icon") %>
+<%= image_tag(@user.icon.url, class:"icon", id: :img_prev) %>
 </div>
 </div>
 
@@ -54,7 +54,7 @@
       <% @user.diaries.each do |diary| %>
             <%=link_to diary_path(diary.id) do %>
             <div class="diary-index-show">
-              <%= image_tag("sample_icon.png",class:"diary-index-image") %>
+              <%= image_tag(diary.main_image.url,class:"diary-index-image") %>
             <p><%= diary.title %></p>
             <% end %>
             <p class="inde"><%= diary.activity_date %></p>
@@ -70,7 +70,7 @@
       <% @user.followers.each do |follower| %>
       <%= link_to(user_path(follower.id)) do %>
       <div class="user-index-show">
-        <%= image_tag("sample_icon.png",size: 100) %>
+        <%= image_tag(user.icon.url,size: 100) %>
         <p><%=link_to follower.name, user_path(follower.id) %></p>
         <%= follower.age %>
         <%= follower.birth_place %>
