@@ -1,4 +1,4 @@
-<%= form_with(model: @image) do |form| %>
+<%= form_with(model: image, url: images_path(image.id), method: :post) do |form| %>
   <% if image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -9,17 +9,16 @@
       </ul>
     </div>
   <% end %>
-
+<%# <% binding.pry %> %>
 
   <div class="main-image-field">
     <%= form.file_field :main_image %>
   </div>
 
   <div class="sub-image-field">
-    <%= form.file_field :sub_image %>
+    <%= form.file_field :sub_image , multiple: true %>
   </div>
 
-  <div class="actions">
-    <%= form.submit "画像を投稿する" %>
-  </div>
+  <%= form.submit "画像を追加する" %>
+
 <% end %>

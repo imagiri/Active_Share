@@ -11,6 +11,8 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "st
 Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "javascripts")
 
 Rails.application.config.assets.precompile += %w( index.css )
+Rails.application.config.assets.precompile += %w( colorbox.css )
+Rails.application.config.assets.precompile += %w( jquery.colorbox-min.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

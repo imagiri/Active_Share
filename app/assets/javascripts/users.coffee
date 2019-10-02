@@ -3,20 +3,20 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$(document).on 'turbolinks:load', ->
+ $(document).on 'turbolinks:load', ->
 
-  readURL = (input) ->
-    if input.files and input.files[0]
-      reader = new FileReader
+   readURL = (input) ->
+     if input.files
+       reader = new FileReader
 
-      reader.onload = (e) ->
-        $('#img_prev').attr 'src', e.target.result
-        return
+       reader.onload = (e) ->
+         $('#icon_img_prev').attr 'src', e.target.result
+         return
 
-      reader.readAsDataURL input.files[0]
-    return
+       reader.readAsDataURL input.files[0]
+     return
 
-  $('#user_img').change ->
-    readURL this
-    return
-  return
+   $('#user_img').change ->
+     readURL this
+     return
+   return

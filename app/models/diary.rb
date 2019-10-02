@@ -1,4 +1,8 @@
 class Diary < ApplicationRecord
+  mount_uploader :main_image, ImageUploader
+  mount_uploaders :sub_image, ImageUploader
+
+  
   belongs_to :user
 
   has_many :taggings, dependent: :destroy
