@@ -9,7 +9,9 @@
   <table align="center">
     <tr class="user-show-name">
       <td><h3><%=@user.name %></h3></td>
-      <td><%= link_to "編集する", edit_user_path(@user.id) %></td>
+      <% if @user.id == current_user.id || current_user.admin == true %>
+        <td><%= link_to "編集する", edit_user_path(@user.id) %></td>
+      <% end %>
     </tr>
   </table>
   <table align="center">
@@ -19,8 +21,8 @@
       </span><span><td><span>出身地</span><%=@user.birth_place %></td>
     </tr>
   </table>
-<div class="tab-content">
-<main class="p-3">
+
+<div class="tab-area">
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a href="#photo1" class="nav-link active" data-toggle="tab">プロフィール</a>
@@ -35,10 +37,7 @@
       <a href="#photo4" class="nav-link" data-toggle="tab">フォロー</a>
     </li>
   </ul>
-</div>
 
-
-  <!-- 写真部分 -->
   <div class="tab-content">
     <div id="photo1" class="tab-pane active">
       <img src="images/photo1.jpg" class="img-fluid" alt=""/>
@@ -70,7 +69,7 @@
       <% @user.followers.each do |follower| %>
       <%= link_to(user_path(follower.id)) do %>
       <div class="user-index-show">
-        <%= image_tag(user.icon.url,size: 100) %>
+        <%= image_tag(follower.icon.url,width: "100%", height: "100px") %>
         <p><%=link_to follower.name, user_path(follower.id) %></p>
         <%= follower.age %>
         <%= follower.birth_place %>
@@ -82,7 +81,7 @@
       <% @user.following.each do |follow| %>
       <%= link_to(user_path(follow.id)) do %>
       <div class="user-index-show">
-        <%= image_tag("sample_icon.png",size: 100) %>
+        <%= image_tag(follow.icon.url,width: "100%", height: "100px") %>
         <p><%=link_to follow.name, user_path(follow.id) %></p>
         <%= follow.age %>
         <%= follow.birth_place %>
@@ -91,6 +90,7 @@
       <% end %>
     </div>
   </div>
-</main>
+</div>
+
 
 </div>

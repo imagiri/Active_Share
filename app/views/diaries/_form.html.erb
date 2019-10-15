@@ -16,7 +16,7 @@
 
   <div class="new-content-content">
     <p><%= form.label :content %></p>
-    <p><%= form.text_area :content %></p>
+    <p><%= form.text_area :content, wrap: :hard %></p>
   </div>
 
   <div class="diary-tags-field">
@@ -41,7 +41,7 @@
     <%# <%= image_tag @diary.sub_image.url %> %>
     <!-- </div> -->
 
-  <div class="new-submit">
+  <div class="new-submit submit-box ">
     <p><%= form.submit "投稿する" %></p>
   </div>
 

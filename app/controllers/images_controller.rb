@@ -10,8 +10,6 @@ class ImagesController < ApplicationController
       end
     end
 
-  end
-
   def destroy
   end
 

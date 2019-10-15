@@ -1,80 +1,72 @@
 <div class="user-edit">
-<div class="user-edit-top">
-<h1>ユーザー情報</h1>
-</div>
 <%= form_with(model:@user, local:true) do |f| %>
 
   <div class="user-show-top">
     <div class="icon-box" id="icon_view" onClick="$('#icon').click()">
-      <%= image_tag @user.icon.url,class: "icon", id: :icon_img_prev %>
+      <%= image_tag @user.icon.url,class:"icon", id: :icon_img_prev %>
     </div>
 
     <div id="back_icon_view" onClick="$('#back_icon').click()">
-      <%= image_tag @user.back_icon.url, class:"back-icon view_box user-show-top", id: :back_img_prev %>
-    </div>
-
-    <div class="img-form">
-    <%= f.label :icon %>
-    <%= f.file_field :icon, id: :icon, type: :file %>
-    <%= f.label :back_icon %>
-    <%= f.file_field :back_icon, id: :back_icon, type: :file %>
+      <%= image_tag @user.back_icon.url, class:"user-show-top baxk-edit-icon", id: :back_img_prev %>
     </div>
   </div>
 
+  <div class="user-edit-content">
 
-<div class="user-edit-content">
-<table align="center">
-  <tr class="name-content form-box">
-    <th><%=f.label :name %></th>
-    <td><%=f.text_field :name %></td>
-  </tr>
+    <div class="img-form">
+      <%= f.label :icon %>
+      <%= f.file_field :icon, id: :icon, type: :file %>
+      <%= f.label :back_icon%>
+      <%= f.file_field :back_icon, id: :back_icon, type: :file %>
+    </div>
 
-  <tr class="introduction-content form-box">
-    <th><%=f.label :introduction %></th>
-    <td><%=f.text_area :introduction %></td>
-  </tr>
 
-  <tr class="sex-content form-box">
-    <th><%=f.label :sex %></th>
-    <td><%=f.select :sex, [:男, :女],class: 'form-control btn btn-info'  %></td>
-  </tr>
+  <div class="name-content form-box">
+    <h5><%=f.label :name %></h5>
+    <p><%=f.text_field :name %></p>
+  </div>
 
-  <tr class="age-content form-box">
-    <th><%=f.label :age %></th>
-    <td>
+  <div class="introduction-content form-box">
+    <h5><%=f.label :introduction %></h5>
+    <p><%=f.text_area :introduction %></p>
+  </div>
+
+  <div class="sex-content form-box">
+    <h5><%=f.label :sex %></h5>
+    <p><%=f.select :sex, [:男, :女],class: 'form-control btn btn-info'  %></p>
+  </div>
+
+  <div class="age-content form-box">
+    <h5><%=f.label :age %></h5>
+    <p>
       <%= f.select :age, User.ages.keys, class: 'form-control btn btn-info' %>
-    </td>
-  </tr>
+    </p>
+  </div>
 
-  <tr class="activity-area-content form-box">
-    <th><%=f.label :activity_area %></th>
-    <td>
+  <div class="activity-area-content form-box">
+    <h5><%=f.label :activity_area %></h5>
+    <p>
       <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
       <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
       <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
-    </td>
-  </tr>
+    </p>
+  </div>
 
-  <tr class="outdoor-history-content form-box">
-    <th><%=f.label :outdoor_history %></th>
-    <td>
+  <div class="outdoor-history-content form-box">
+    <h5><%=f.label :outdoor_history %></h5>
+    <p>
       <%= f.select :outdoor_history, User.outdoor_histories.keys, class: 'form-control btn btn-info' %>
-    </td>
-  </tr>
+    </p>
+  </div>
 
-  <tr class="birth-place-content form-box">
-    <th><%=f.label :birth_place %></th>
-    <td>
-      <%= f.select :birth_place, User.birth_places.keys, class: 'form-control btn btn-info' %>
-    </td>
-  </tr>
+  <div class="birth-place-content form-box">
+    <h5><%=f.label :birth_place %></h5>
+    <p><%= f.select :birth_place, User.birth_places.keys, class: 'form-control btn btn-info' %></p>
+  </div>
 
-  <tr class="form-box">
-    <th></th>
-    <td><%= f.submit "更新する" %></td>
-  </tr>
-
-</table>
+  <div class="form-box submit-box">
+    <p><%= f.submit "更新する" %></p>
+  </div>
 </div>
 <% end %>
 </div>
