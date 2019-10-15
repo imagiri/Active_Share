@@ -1,9 +1,11 @@
-<% if @diary.favorite?(@diary, current_user) %>
- <li class="like_off">
-  <%= link_to 'いいね！をはずす', favorite_path(id: @diary.id), method: :delete, remote: true, class: "like_off_btn" unless @diary.user_id == current_user.id %>
- </li>
-<% else %>
- <li class="like_on">
-  <%= link_to 'いいね！', favorites_path(diary_id: @diary.id), method: :post, remote: true, class: "like_on_btn" unless @diary.user_id == current_user.id %>
- </li>
+<% unless @diary.user == current_user %>
+  <% if @diary.favorite?(@diary, current_user) %>
+  <li class="like_off">
+    <%= link_to image_tag("non_favorite_star.png"), favorite_path(id: @diary.id), method: :delete, remote: true, class: "like_off_btn" unless @diary.user_id == current_user.id %>
+  </li>
+  <% else %>
+  <li class="like_on">
+    <%= link_to image_tag("favorite_star.png"), favorites_path(diary_id: @diary.id), method: :post, remote: true, class: "like_on_btn" unless @diary.user_id == current_user.id %>
+  </li>
+  <% end %>
 <% end %>

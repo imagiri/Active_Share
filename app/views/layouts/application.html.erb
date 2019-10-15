@@ -4,19 +4,19 @@
     <title>ActiveShare</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <%= stylesheet_link_tag    'https://yarnpkg.com/en/package/normalize.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'colorbox.css'%>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-2.2.4.min.js'%>
     <%= javascript_include_tag 'jquery.colorbox-min.js'%>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
       <header class="header">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <!-- <a class="navbar-brand" href="#">ブランド</a> -->
-          <p class="navbar-brand"><%= link_to image_tag('top_icon.png')%></p>
+          <p class="navbar-brand"><%= link_to image_tag('top_icon.png'), unauthenticated_root_path%></p>
           <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -41,14 +41,20 @@
             </ul>
           </div><!-- /.navbar-collapse -->
         </nav>
+        <% if notice %>
+        <div class="alert alert-info alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= notice %>
+        </div>
+        <% end %>
+        <% if alert %>
+        <h3 class="alert alert-warning alert-dismissible"><%= alert %></h3>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <% end %>
+        
       </header>
 
-    <% if notice %>
-    <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-    <p class="alert alert-error"><%= alert %></p>
-    <% end %>
+
     <%= yield %>
   </body>
 </html>

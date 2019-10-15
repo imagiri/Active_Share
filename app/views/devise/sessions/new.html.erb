@@ -7,7 +7,7 @@
 
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      
+
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -27,6 +27,10 @@
 
       <div class="actions">
         <%= f.submit "Log in" %>
+      </div>
+
+      <div class="Outside">
+        <%= link_to image_tag("google_icon.png"), user_google_omniauth_authorize_path %>
       </div>
       <% end %>
 

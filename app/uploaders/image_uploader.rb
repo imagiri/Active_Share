@@ -52,6 +52,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   def default_url
-    "no_image.png"
+    "top_background_image"
   end
 end
