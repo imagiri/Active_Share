@@ -2,10 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).on 'turbolinks:load', ->
+$(document).on 'DOMContentLoaded', ->
   $('#diary-tags').tagit
     fieldName:   'tag_list'
     singleField: true
+
   $('#diary-tags').tagit()
   tag_string = $("#tag_hidden").val()
   try

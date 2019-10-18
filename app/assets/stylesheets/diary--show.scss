@@ -1,6 +1,7 @@
 .show-content{
   max-width: 100%;
-  width: 100%;
+  width: 70%;
+  margin-left: 15%;
 }
 
 .show-content-area{
@@ -20,7 +21,6 @@
 
 .diary-tags-field{
   margin-top: 5%;
-  max-width: 100%;
 }
 .diary-tags-list{
   display: flex;
@@ -53,8 +53,8 @@
 }
 
 .diary-show-comment{
-  width: 100%;
   margin-top: 5%;
+  padding-bottom: 100px;
 }
 
 .diary-show-comment-area{
