@@ -76,4 +76,5 @@ protect_from_forgery :except => [:create]
   def set_diary
     @diary = Diary.find(params[:id])
   end
+
 end
