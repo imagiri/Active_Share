@@ -1,0 +1,66 @@
+<div class="tab-content">
+  <div id="tab1" class="tab-pane active">
+    <img src="images/photo1.jpg" class="img-fluid" alt=""/>
+    <div class="user-show-history">
+      <p><span>アウトドア歴</span><%=@user.outdoor_history %></p>
+      <p><span>活動エリア</span><%= @user.activity_area %></p>
+    </div>
+    <div class="user-show-introduction">
+      <p><%= simple_format(@user.introduction) %></p>
+    </div>
+  </div>
+  <div id="tab2" class="tab-pane">
+    <% @user.diaries.each do |diary| %>
+          <%=link_to diary_path(diary.id) do %>
+          <div class="user-diary-index">
+            <%= image_tag(diary.main_image.url,class:"diary-index-image", width:"100%", height:"670px") %>
+          <h3><%= diary.title %></h3>
+          <% end %>
+          <p class="inde"><%= diary.activity_date %>
+            <% if @user.id == current_user.id || current_user.admin == true %>
+              <%= link_to "編集", edit_diary_path(diary.id) %>
+              <%= link_to "削除", diary_path(diary.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%>
+            <% end %>
+          </p>
+          <p><%= link_to diary.user.name, user_path(diary.user.id)  %></p>
+          </div>
+    <% end %>
+  </div>
+  <div id="tab3" class="tab-pane">
+    <% @favorite.each do |diary| %>
+          <%=link_to diary_path(diary.id) do %>
+          <div class="user-diary-index">
+            <%= image_tag(diary.main_image.url,class:"diary-index-image", width:"100%", height:"500px") %>
+          <h3><%= diary.title %></h3>
+          <% end %>
+          <p class="inde"><%= diary.activity_date %>
+          </p>
+          <p><%= link_to diary.user.name, user_path(diary.user.id)  %></p>
+          </div>
+    <% end %>
+  </div>
+  <div id="tab4" class="tab-pane">
+    <% @user.followers.each do |follower| %>
+    <%= link_to(user_path(follower.id)) do %>
+    <div class="user-index-show">
+      <%= image_tag(follower.icon.url,width: "100%", height: "100px") %>
+      <p><%=link_to follower.name, user_path(follower.id) %></p>
+      <%= follower.age %>
+      <%= follower.birth_place %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <div id="tab5" class="tab-pane">
+    <% @user.following.each do |follow| %>
+    <%= link_to(user_path(follow.id)) do %>
+    <div class="user-index-show">
+      <%= image_tag(follow.icon.url,width: "100%", height: "100px") %>
+      <p><%=link_to follow.name, user_path(follow.id) %></p>
+      <%= follow.age %>
+      <%= follow.birth_place %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>
