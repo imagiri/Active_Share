@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
 //= require diaries.coffee
@@ -91,28 +90,37 @@ $(function(){
   });
 });
 
+$(function() {
+  $("#sub_image_view").after('<span class="sub"></span>');
+  // 条件にあったものを上記の位置に表示する
 
-$(function(){
-  $fileField = $('#sub_image')
+  // アップロードするファイルを複数選択
+  $('input[multiple=multiple]').change(function() {
+    $('.sub').html('');
+    var file = $(this).prop('files');
 
-  $($fileField).on('change', $fileField, function(e) {
-    file = e.target.files[0]
-    reader = new FileReader(),
-    binding.pry
-    $preview = $("#sub_image_view");
+    var img_count = 1;
+    $(file).each(function(i) {
+      // 5枚まで
+      if (img_count > 5) {
+        return false;
+      }
 
-    reader.onload = (function(file) {
-      return function(e) {
-        $preview.empty();
-        $preview.append($('<img>').attr({
-          src: e.target.result,
-          width: "100%",
-          class: "sub-image",
-          title: file.name
-        }));
-      };
-    })(file);
-    reader.readAsDataURL(file);
+      if (! file[i].type.match('image.*')) {
+        $(this).val('');
+        $('.sub').html('');
+        return;
+      }
+
+      var reader = new FileReader();
+      reader.onload = function() {
+        var img_src = $('<img class="sub-images">').attr('src', reader.result);
+        $('.sub').append(img_src);
+      }
+      reader.readAsDataURL(file[i]);
+
+      img_count = img_count + 1;
+    });
   });
 });
 

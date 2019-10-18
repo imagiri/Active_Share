@@ -1,6 +1,15 @@
 .new-body{
-  margin: 5%;
+  margin-top: 10%;
   position: relative;
+  width: 70%;
+  height: auto;
+  min-height: 100%;
+}
+
+.new-top{
+  margin-top: 10%;
+  margin-left: 10%;
+
 }
 
 .new-body p{
@@ -9,10 +18,11 @@
 
 .new-content{
   text-align: left;
-  position: absolute;
-  left: 0;
-}
+  // position: absolute;
+  margin-top: 3%;
+  padding-left: 15%;
 
+}
 
 #diary_title{
         width: 800px;
@@ -29,22 +39,29 @@
         height: 300px;
     }
 
-.tagit-label{
-}
 .ui-autocomplete-input{
-  width: 300px;
+  width: 800px;
   height: 40px;
   margin-bottom: 5%;
 }
 
+.preview_field{
+
+}
+
 .diary-image-field{
-  height: 300px;
-  width: 800px;
-  border:dashed red;
+  border:dashed white;
   text-align: center;
+}
+
+.add-sub-image{
+  text-align: center;
+}
+
+.sub-images{
+  width: 20%;
 }
 
 .new-submit{
   margin-top: 50px;
-  text-align: center;
 }
