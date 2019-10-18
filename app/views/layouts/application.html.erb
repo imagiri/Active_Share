@@ -4,12 +4,15 @@
     <title>ActiveShare</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'https://yarnpkg.com/en/package/normalize.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'bootstrap.min.css'%>
+    <%= stylesheet_link_tag    'override.css'%>
     <%= stylesheet_link_tag    'colorbox.css'%>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'https://code.jquery.com/jquery-2.2.4.min.js'%>
+    <%= include_gon %>
+    <%= javascript_include_tag 'application'%>
     <%= javascript_include_tag 'jquery.colorbox-min.js'%>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -34,8 +37,8 @@
                     <div class="dropdown-divider"></div>
                     <p class="dropdown-item"><%= link_to "ログアウト",destroy_user_session_path, method: :delete%></p>
                     <% else %>
-                    <p class="header_link"><%= link_to "log in", new_user_session_path %></p>
-                    <p class="header_link"><%= link_to "sign up", new_user_registration_path %></p>
+                    <p class="header_link"><%= link_to image_tag("top_logo3", width: "80px"), new_user_session_path %></p>
+                    <p class="header_link"><%= link_to image_tag("top_logo2", width: "80px"), new_user_registration_path %></p>
                     <% end %>
                   </div>
             </ul>
@@ -51,10 +54,16 @@
         <h3 class="alert alert-warning alert-dismissible"><%= alert %></h3>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <% end %>
-        
+
       </header>
 
 
     <%= yield %>
+
+    <footer>
+      <div class="footer">
+        <p>©︎ActiveShare </p>
+      </div>
+    </footer>
   </body>
 </html>

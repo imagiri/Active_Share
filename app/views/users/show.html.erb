@@ -1,8 +1,8 @@
 <div class="user-show-top">
-<%= image_tag(@user.back_icon.url, class:"back-icon") %>
-<div class="icon-box">
-<%= image_tag(@user.icon.url, class:"icon", id: :img_prev) %>
-</div>
+  <%= image_tag(@user.back_icon.url, class:"back-icon") %>
+  <div class="icon-box">
+    <%= image_tag(@user.icon.url, class:"icon", id: :img_prev) %>
+  </div>
 </div>
 
 <div class="user-show-content">
@@ -22,75 +22,24 @@
     </tr>
   </table>
 
-<div class="tab-area">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a href="#photo1" class="nav-link active" data-toggle="tab">プロフィール</a>
-    </li>
-    <li class="nav-item">
-      <a href="#photo2" class="nav-link" data-toggle="tab">最近の活動</a>
-    </li>
-    <li class="nav-item">
-      <a href="#photo3" class="nav-link" data-toggle="tab">フォロワー</a>
-    </li>
-    <li class="nav-item">
-      <a href="#photo4" class="nav-link" data-toggle="tab">フォロー</a>
-    </li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="photo1" class="tab-pane active">
-      <img src="images/photo1.jpg" class="img-fluid" alt=""/>
-      <div class="user-show-history">
-        <p><span>アウトドア歴</span><%=@user.outdoor_history %></p>
-        <p><span>活動エリア</span><%= @user.activity_area %></p>
-      </div>
-      <div class="user-show-introduction">
-        <p><%= @user.introduction %></p>
-      </div>
-    </div>
-    <div id="photo2" class="tab-pane">
-      <% @user.diaries.each do |diary| %>
-            <%=link_to diary_path(diary.id) do %>
-            <div class="diary-index-show">
-              <%= image_tag(diary.main_image.url,class:"diary-index-image") %>
-            <p><%= diary.title %></p>
-            <% end %>
-            <p class="inde"><%= diary.activity_date %></p>
-            <p><%= link_to diary.user.name, user_path(diary.user.id)  %></p>
-            <p>
-              <%= link_to "編集", edit_diary_path(diary.id) %>
-              <%= link_to "削除", diary_path(diary.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%>
-            </p>
-            </div>
-      <% end %>
-    </div>
-    <div id="photo3" class="tab-pane">
-      <% @user.followers.each do |follower| %>
-      <%= link_to(user_path(follower.id)) do %>
-      <div class="user-index-show">
-        <%= image_tag(follower.icon.url,width: "100%", height: "100px") %>
-        <p><%=link_to follower.name, user_path(follower.id) %></p>
-        <%= follower.age %>
-        <%= follower.birth_place %>
-      </div>
-      <% end %>
-      <% end %>
-    </div>
-    <div id="photo4" class="tab-pane">
-      <% @user.following.each do |follow| %>
-      <%= link_to(user_path(follow.id)) do %>
-      <div class="user-index-show">
-        <%= image_tag(follow.icon.url,width: "100%", height: "100px") %>
-        <p><%=link_to follow.name, user_path(follow.id) %></p>
-        <%= follow.age %>
-        <%= follow.birth_place %>
-      </div>
-      <% end %>
-      <% end %>
-    </div>
+  <div class="tab-area">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a href="#tab1" class="nav-link active" data-toggle="tab">プロフィール</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab2" class="nav-link" data-toggle="tab">最近の活動</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab3" class="nav-link" data-toggle="tab">お気に入りした活動</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab4" class="nav-link" data-toggle="tab">フォロワー</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab5" class="nav-link" data-toggle="tab">フォロー</a>
+      </li>
+    </ul>
+    <%=render "tab"%>
   </div>
-</div>
-
-
 </div>
