@@ -1,12 +1,7 @@
 .user-edit{
-  margin: 5%;
-  position: relative;
-  // border: 2px solid;
-  // height: 100%;
-  // background-color: #FFFFF0;
+  height: 100%;
+  width: 100%;
 }
-
-
 
 .user-edit-top{
   margin-bottom: 5%;
@@ -15,35 +10,52 @@
 .user-edit-icon{
   height: 200px;
   margin-bottom: 5%;
+  position: relative;
 }
 
-.user-edit-back-icon{
-  height: 300px;
-  margin-bottom: 5%;
+.user-edit-icon-box{
+  position: absolute;
+  top:40%;
+  left: 40%;
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  border: thick double black;
+  border-radius: 10em;
+  z-index: 2;
+
+}
+
+.user-edit-icon-area{
+  width: 100%;
+  height:100%;
+
+}
+
+#img_prev{
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.img-form{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.user-edit-back_icon-area{
 }
 
 .user-edit-content{
-  position: absolute;
   left: 0;
   width: 100%;
+  padding-left: 20%;
 }
 
-.user-edit-content table{
-  width: 100%;
-}
+.user-edit-content #user_email{
+        width: 500px;
+        height: 40px;
+        margin-bottom: 5%;
 
-.form-box tr{
-  margin-bottom: 5%;
-}
-
-.user-edit-content th{
-  width: 20%;
-  padding: 0
-}
-
-.user-edit-content td{
-  width: 80%;
-  height: 100%;
 }
 
 #user_name{
@@ -58,22 +70,20 @@
         margin-bottom: 5%;
     }
 
-#user_sex {
-  margin-bottom: 5%;
+.user-edit-content h5 {
+  width: 20%;
 }
 
-#user_age {
-  margin-bottom: 5%;
+.submit-box {
+  padding-left: 30%;
 }
 
-#user_activity_area{
-  margin-bottom: 5%;
+.submit-box input{
+  width: 150px;
+  height: 30px;
 }
 
-#user_birth_place{
-  margin-bottom: 5%;
-}
-
-#user_outdoor_history{
-  margin-bottom: 5%;
+.form-box select{
+  width: 150px;
+  height: 30px;
 }

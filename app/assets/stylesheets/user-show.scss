@@ -2,28 +2,31 @@
   height: 500px;
   width: 100%;
   object-fit: cover;
-  // position: relative;
+  position: relative;
 }
 
 .back-icon {
-min-width: 100%;
-max-height: 100%;
+max-width: 100%;
+width: 100%;
+height: 100%;
 }
 
 .icon-box{
-  position: absolute;
-  top:40%;
-  left: 40%;
-  max-width: 20%;
-  max-height: 20%;
+  position: relative;
+  top:-30%;
+  left: 24%;
+  width: 250px;
+  height: 250px;
   background-color: white;
   border: thick double black;
   border-radius: 10em;
 }
 
 .icon{
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
   max-height: 100%;
+  border-radius: 10em;
 }
 
 .user-show-content{
@@ -32,14 +35,41 @@ max-height: 100%;
   margin-right: 20%;
 }
 
-.user-show-name{
-
-}
-
 .user-show-prof td{
   border-bottom: thick double black;
 }
 
 .user-show-introduction{
   margin-top: 2%;
+}
+
+
+.tab-area{
+  padding-left: 15%;
+  padding-left: 15%;
+  height: 100%;
+  width: 100%;
+}
+
+.user-show-index{
+  width: 25%;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid;
+  border-radius: 10% / 50%;
+  margin-right: 2%;
+  margin-bottom: 10%;
+  background-color: #DCDCDC;
+}
+
+.user-diary-index{
+    width: 100%;
+    margin-top: 2%;
+    background-color: #DCDCDC;
+    border: solid ;
+}
+
+span{
+  padding-right: 10px;
+  font-weight: bold;
 }

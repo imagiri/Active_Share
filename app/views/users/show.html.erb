@@ -1,34 +1,45 @@
 <div class="user-show-top">
-<%= image_tag(@user.back_icon.url, class:"back-icon") %>
-<div class="icon-box">
-<%= image_tag(@user.icon.url, class:"icon") %>
-</div>
+  <%= image_tag(@user.back_icon.url, class:"back-icon") %>
+  <div class="icon-box">
+    <%= image_tag(@user.icon.url, class:"icon", id: :img_prev) %>
+  </div>
 </div>
 
 <div class="user-show-content">
   <table align="center">
     <tr class="user-show-name">
       <td><h3><%=@user.name %></h3></td>
-      <td><%= link_to "編集する", edit_user_path(@user.id) %></td>
+      <% if @user.id == current_user.id || current_user.admin == true %>
+        <td><%= link_to "編集する", edit_user_path(@user.id) %></td>
+      <% end %>
     </tr>
   </table>
   <table align="center">
     <tr>
-      <td><%=@user.sex %></td>
-      <td><%=@user.age %></td>
-      <td><%=@user.birth_place %></td>
-    </tr>
-    <tr>
-      <td><%=@user.activity_area %></td>
-      <td><%=@user.activity_area %></td>
-      <td><%=@user.activity_area %></td>
+      <td><span>性別</span><%=@user.sex %></td><span>
+      </span><td><span>年齢</span><%=@user.age %></td><span>
+      </span><span><td><span>出身地</span><%=@user.birth_place %></td>
     </tr>
   </table>
-    <div class="user-show-history">
-      <p><%=@user.outdoor_history %></p>
-    </div>
-    <div class="user-show-introduction">
-      <p><%= @user.introduction %></p>
-  </div>
 
+  <div class="tab-area">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a href="#tab1" class="nav-link active" data-toggle="tab">プロフィール</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab2" class="nav-link" data-toggle="tab">最近の活動</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab3" class="nav-link" data-toggle="tab">お気に入りした活動</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab4" class="nav-link" data-toggle="tab">フォロワー</a>
+      </li>
+      <li class="nav-item">
+        <a href="#tab5" class="nav-link" data-toggle="tab">フォロー</a>
+      </li>
+    </ul>
+    <%=render "tab"%>
+  </div>
 </div>

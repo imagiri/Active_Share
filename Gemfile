@@ -19,7 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -51,6 +50,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'dotenv-rails'
+  gem 'letter_opener_web'
 end
 
 group :test do
@@ -64,8 +65,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'devise'
+  gem 'rails_admin', '~> 2.0'
+  gem 'cancancan'
+  gem 'omniauth'
+  gem 'omniauth-google-oauth2'
+
   gem 'ransack', '~> 2.1.1'
   gem 'kaminari'
+
   gem 'jquery-ui-rails'
   gem 'carrierwave'
   gem 'mini_magick'
+  gem 'delayed_job_active_record'
+  gem 'rails-erd'
+  gem 'gon'

@@ -4,16 +4,16 @@
     <title>ActiveShare</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <%= javascript_include_tag 'application'%>
   </head>
 
   <body class="top_body">
     <div class="top_content">
       <p class="main_logo"><%= image_tag 'top_icon.png',size: '500x100' %></p>
       <div class ="top_link">
-      <p><%= link_to image_tag('top_logo2.png'), new_user_session_path %></p>
-      <p><%= link_to image_tag('top_logo3.png'), new_user_registration_path %></p>
+      <p><%= link_to image_tag('top_logo3.png'), new_user_session_path %></p>
+      <p><%= link_to image_tag('top_logo2.png'), new_user_registration_path %></p>
       </div>
     </div>
   </body>

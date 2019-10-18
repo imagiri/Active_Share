@@ -3,11 +3,9 @@
   <div class="session_back">
     <div class="session_content">
       <p><%= image_tag'top_logo3.png'%></p>
-      <%= render "devise/shared/links" %>
-
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      
+
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -18,6 +16,10 @@
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
 
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "パスワードを忘れてしまいましたか?", new_password_path(resource_name) %><br />
+      <% end %>
+
       <% if devise_mapping.rememberable? %>
       <div class="field">
         <%= f.check_box :remember_me %>
@@ -27,6 +29,10 @@
 
       <div class="actions">
         <%= f.submit "Log in" %>
+      </div>
+
+      <div class="Outside">
+        <%= link_to image_tag("google_icon.png"), user_google_omniauth_authorize_path %>
       </div>
       <% end %>
 

@@ -1,56 +1,53 @@
-  <div class="new-body">
-    <div class="new-top">
+<%# <% binding.pry %> %>
+    <div class="show-top">
       <div class="user-show-top">
-      <%= image_tag("top_background_image.jpg", class:"back-icon") %>
+      <%= image_tag(@diary.main_image.url, class:"back-icon") %>
       </div>
     </div>
-  <div class="new-content">
+  <div class="show-content">
 
   <div class="new-title-content">
-    <h2><%= @diary.title %></h2>
+    <h2 class="show-title"><%= @diary.title %></h2>
     <div id="favorite_btn">
         <%= render 'favorite_form', diary: @diary, favorite: @favorite %>
     </div>
-  </div>
-
-  <div class="show-user">
-    <p><%=@diary.user.name %></p>
-  </div>
-
-  <div class="new-activity_date-content">
-    <p>活動日時</p>
+    <h5 class="show-user"><%= @diary.user.name %></h5>
     <p><%= @diary.activity_date %></p>
   </div>
 
-  <div class="new-content-content">
-    <p>活動内容</p>
-    <p><%= @diary.content %></p>
+  <div class="show-content-area">
+    <h5>活動内容</h5>
+    <div class="show-textarea">
+      <p><%= simple_format(@diary.content) %></p>
+    </div>
   </div>
 
   <div class="diary-tags-field">
-    <p>登録タグ</p>
+    <h5>登録タグ一覧</h5>
+    <div class="diary-tags-list">
     <% @tag_list.each do |tag| %>
     <p><%= tag %></p>
     <% end %>
+    </div>
   </div>
-  <div>
-  <p>画像</p>
-  <div class="diary-image-field"></div>
-  </div>
-  <div class="diary-show-comment">
-    <p>コメント</p>
-      <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
-      <div id="comments_area">
-        <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
-        <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
+    <% unless @diary.sub_image.blank? %>
+    <div class="sub-image-field">
+      <h5>画像</h5>
+      <% @diary.sub_image.each do |diary| %>
+      <div class="sub_image_box">
+        <a href=<%= diary.url %> class="img-group cboxElement">
+        <%= image_tag diary.url, class: "sub_image" %>
+        </a>
       </div>
-      <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+      <% end %>
+    </div>
+    <% end %>
+  <div class="diary-show-comment">
+    <h5>コメント</h5>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
+    </div>
     <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
-    <%= link_to '編集', edit_diary_path(@diary) %> |
+    <%= link_to '編集', edit_diary_path(@diary) %>
     <%= link_to '活動日記一覧画面へ', diaries_path %>
-
-  </div>
-
-</div>
-
 </div>

@@ -1,38 +1,40 @@
 <div class="index-top">
-  <h1>活動日記一覧ページ</h1>
+  <%= image_tag("diaries_logo") %>
 </div>
 
+<div class="index-body">
 <div class="index-side">
   <%= search_form_for @search do |f| %>
   <div class="form-group">
-    <%= f.label :title_cont, "title" %>
-    <%= f.text_field :title_cont, class: "form-control" %>
+    <p><%= f.label :title_or_content_cont, "keywards" %></p>
+    <p><%= f.text_field :title_or_content_cont, class: "form-control" %></p>
+    <p><%= f.label :activity_date_lt, "activity_date" %></p>
+    <p><%= f.date_field :activity_date_lt, class: "form-control" %></p>
+    <p><%= f.label :taggings_tag_tag_name_cont, "tag_name" %></p>
+    <p><%= f.text_field :taggings_tag_tag_name_cont, class: "form-control" %></p>
+    <p><%= f.label :user_name_cont, "user_name" %></p>
+    <p><%= f.text_field :user_name_cont, class: "form-control" %></p>
+
   </div>
 
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 </div>
 
-
 <div class="index-content">
-  <table>
-    <tr>
-      <th>タイトル</th>
-      <th>活動日時</th>
-      <th>投稿者</th>
-    </tr>
-  </table>
   <% @diaries.each do |diary| %>
-  <table>
-      <tr>
-        <tb><%=link_to diary.title, diary_path(diary.id) %></tb>
-        <tb><%= diary.activity_date %></tb>
-        <tb><%= diary.user.name %></tb>
-      </tr>
-      <tr>
-        <td><%= link_to "編集", edit_diary_path(diary.id) %></td>
-        <td><%= link_to "削除", diary_path(diary.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%></td>
-      </tr>
+        <%=link_to diary_path(diary.id) do %>
+        <div class="diary-index-show">
+            <%= image_tag(diary.main_image.url,class:"diary-index-image", height: "300px", width: "100%") %>
+        <p><%= diary.title %></p>
+        <% end %>
+        <p class="inde"><%= diary.activity_date %></p>
+        <p><%= link_to diary.user.name, user_path(diary.user.id)  %></p>
+        <p>
+          <%= link_to "編集", edit_diary_path(diary.id) %>
+          <%= link_to "削除", diary_path(diary.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%>
+        </p>
+        </div>
     <% end %>
-  </table>
+</div>
 </div>
