@@ -1,5 +1,5 @@
 <div class="index-top">
-  <h1>活動日記一覧ページ</h1>
+  <%= image_tag("diaries_logo") %>
 </div>
 
 <div class="index-body">
@@ -25,7 +25,7 @@
   <% @diaries.each do |diary| %>
         <%=link_to diary_path(diary.id) do %>
         <div class="diary-index-show">
-            <%= image_tag(diary.main_image.url,class:"diary-index-image") %>
+            <%= image_tag(diary.main_image.url,class:"diary-index-image", height: "300px", width: "100%") %>
         <p><%= diary.title %></p>
         <% end %>
         <p class="inde"><%= diary.activity_date %></p>
