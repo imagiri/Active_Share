@@ -1,10 +1,10 @@
-  <div class="new-body">
-    <div class="new-top">
+<%# <% binding.pry %> %>
+    <div class="show-top">
       <div class="user-show-top">
       <%= image_tag(@diary.main_image.url, class:"back-icon") %>
       </div>
     </div>
-  <div class="new-content show-content">
+  <div class="show-content">
 
   <div class="new-title-content">
     <h2 class="show-title"><%= @diary.title %></h2>
@@ -30,6 +30,7 @@
     <% end %>
     </div>
   </div>
+    <% unless @diary.sub_image.blank? %>
     <div class="sub-image-field">
       <h5>画像</h5>
       <% @diary.sub_image.each do |diary| %>
@@ -40,17 +41,13 @@
       </div>
       <% end %>
     </div>
+    <% end %>
   <div class="diary-show-comment">
     <h5>コメント</h5>
-      <div id="comments_area">
-        <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
-      </div>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, diary: @diary } %>
+    </div>
     <%= render partial: 'comments/form', locals: { comment: @comment, diary: @diary } %>
-    <%= link_to '編集', edit_diary_path(@diary) %> |
+    <%= link_to '編集', edit_diary_path(@diary) %>
     <%= link_to '活動日記一覧画面へ', diaries_path %>
-
-  </div>
-
-</div>
-
 </div>

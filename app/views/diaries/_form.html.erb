@@ -1,8 +1,33 @@
+<% if @diary.errors.any? %>
+<div id="error_explanation">
+  <div class="alert alert-warning alert-dismissible" role="alert">
+    <h2><%= pluralize(@diary.errors.count, "件のエラー") %></h2>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <ul>
+    <% @diary.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+
+
 <%= form_with(model: @diary,local: true) do |form| %>
+
   <%= form.hidden_field :user_id %>
   <div class="new-body">
-    <div class="new-top"><h1>新規活動日記投稿</h1></div>
+    <div class="new-top"><%= image_tag("diary_logo", height: "50px") %></div>
   <div class="new-content">
+
+    <div class="diary-image-field" id="main_image_view" onClick="$('#main_image').click()">
+    <%= image_tag @diary.main_image.url, class: "back-icon" %>
+    </div>
+
+    <div class="main-img-form">
+    <%= form.label :main_image %>
+    <%= form.file_field :main_image, id: :main_image %>
+    </div>
 
   <div class="new-title-content">
     <p><%= form.label :title %></p>
@@ -11,7 +36,7 @@
 
   <div class="new-activity_date-content">
     <p><%= form.label :activity_date %></p>
-    <p><%= form.date_select :activity_date %></p>
+    <p><%= form.date_field :activity_date %></p>
   </div>
 
   <div class="new-content-content">
@@ -20,33 +45,35 @@
   </div>
 
   <div class="diary-tags-field">
-    <%= form.label "タグ名" %>
+    <%= form.label :tag_name %>
     <div class="add-tag-field">
       <ul id="diary-tags"></ul>
+      <%= hidden_field_tag :tag_hidden,@tag_list %>
     </div>
   </div>
 
-    <div class="diary-image-field" id="main_image_view" onClick="$('#main_image').click()">
-    <%= image_tag @diary.main_image.url, class: "back-icon" %>
-    </div>
-
-    <div class="img-form">
-    <%= form.label :main_image %>
-    <%= form.file_field :main_image, id: :main_image %>
+  <div class="sub-image-form">
     <%= form.label :sub_image %>
-    <%= form.file_field :sub_image,　id: :sub_image, multiple: true %>
-    </div>
-
-    <!-- <div class="sub-image-area"> -->
-    <%# <%= image_tag @diary.sub_image.url %> %>
-    <!-- </div> -->
-
-  <div class="new-submit submit-box ">
-    <p><%= form.submit "投稿する" %></p>
+    <%= form.file_field :sub_image,　id: :sub_image, multiple: true, accept: "image/*"%>
+    <%= hidden_field_tag :sub_image_hidden,@diary.sub_image %>
   </div>
 
+  <div class="preview_field">
   <div class="diary-sub-image-field" id="sub_image_view" onClick="$('#sub_image').click()">
-      <%# <%= image_tag @diary.sub_image[0], class: "sub-image" %> %>
+      <% @diary.sub_image.each do |image| %>
+      <div class="sub_image_box">
+        <a href=<%= image.url %> class="img-group cboxElement">
+        <%= image_tag image.url, class: "sub_image" %>
+        </a>
+      </div>
+      <% end %>
+      <div class="add-sub-image"><h3>-------追加ファイル-------</h3></div>
+  </div>
+  </div>
+
+
+  <div class="new-submit submit-box">
+    <p><%= form.submit "投稿する" %></p>
   </div>
 
 </div>
