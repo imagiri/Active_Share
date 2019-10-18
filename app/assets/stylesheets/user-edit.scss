@@ -1,7 +1,5 @@
 .user-edit{
-  // border: 2px solid;
   height: 100%;
-  // background-color: #FFFFF0;
   width: 100%;
 }
 
@@ -13,6 +11,19 @@
   height: 200px;
   margin-bottom: 5%;
   position: relative;
+}
+
+.user-edit-icon-box{
+  position: absolute;
+  top:40%;
+  left: 40%;
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  border: thick double black;
+  border-radius: 10em;
+  z-index: 2;
+
 }
 
 .user-edit-icon-area{
@@ -35,10 +46,16 @@
 }
 
 .user-edit-content{
-  position: absolute;
   left: 0;
   width: 100%;
   padding-left: 20%;
+}
+
+.user-edit-content #user_email{
+        width: 500px;
+        height: 40px;
+        margin-bottom: 5%;
+
 }
 
 #user_name{

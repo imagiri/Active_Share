@@ -2,22 +2,19 @@
   height: 500px;
   width: 100%;
   object-fit: cover;
-  // position: relative;
+  position: relative;
 }
 
 .back-icon {
 max-width: 100%;
 width: 100%;
 height: 100%;
-position: relative;
 }
 
 .icon-box{
-  position: absolute;
-  top:40%;
-  left: 40%;
-  // min-width: 15%;
-  // min-height: 15%;
+  position: relative;
+  top:-30%;
+  left: 24%;
   width: 250px;
   height: 250px;
   background-color: white;
@@ -38,10 +35,6 @@ position: relative;
   margin-right: 20%;
 }
 
-.user-show-name{
-
-}
-
 .user-show-prof td{
   border-bottom: thick double black;
 }
@@ -56,7 +49,6 @@ position: relative;
   padding-left: 15%;
   height: 100%;
   width: 100%;
-  margin-bottom: 50px;
 }
 
 .user-show-index{
@@ -68,6 +60,13 @@ position: relative;
   margin-right: 2%;
   margin-bottom: 10%;
   background-color: #DCDCDC;
+}
+
+.user-diary-index{
+    width: 100%;
+    margin-top: 2%;
+    background-color: #DCDCDC;
+    border: solid ;
 }
 
 span{
