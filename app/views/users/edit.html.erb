@@ -2,7 +2,7 @@
 <%= form_with(model:@user, local:true) do |f| %>
 
   <div class="user-show-top">
-    <div class="icon-box" id="icon_view" onClick="$('#icon').click()">
+    <div class="user-edit-icon-box" id="icon_view" onClick="$('#icon').click()">
       <%= image_tag @user.icon.url,class:"icon", id: :icon_img_prev %>
     </div>
 
@@ -18,6 +18,11 @@
       <%= f.file_field :icon, id: :icon, type: :file %>
       <%= f.label :back_icon%>
       <%= f.file_field :back_icon, id: :back_icon, type: :file %>
+    </div>
+
+    <div class="email-content form-box">
+      <h5><%=f.label :email %></h5>
+      <p><%= f.email_field :email%></p>
     </div>
 
 
@@ -46,8 +51,6 @@
   <div class="activity-area-content form-box">
     <h5><%=f.label :activity_area %></h5>
     <p>
-      <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
-      <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
       <%= f.select :activity_area, User.activity_areas.keys, class: 'form-control btn btn-info' %>
     </p>
   </div>
