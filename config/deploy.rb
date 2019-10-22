@@ -2,7 +2,7 @@
 lock '3.6.0'
 
 # デプロイするアプリケーション名
-set :application, 'activeshare'
+set :application, 'Active_Share'
 
 # cloneするgitのレポジトリ
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
