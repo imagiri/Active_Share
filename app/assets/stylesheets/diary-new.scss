@@ -1,4 +1,4 @@
-.new-body{
+.new-body {
   margin-top: 10%;
   position: relative;
   width: 70%;
@@ -6,58 +6,55 @@
   min-height: 100%;
 }
 
-.new-top{
+.new-top {
   margin-top: 10%;
   margin-left: 10%;
-
 }
 
-.new-body p{
+.new-body p {
   margin-bottom: 10px;
 }
 
-.new-content{
+.new-content {
   text-align: left;
-  // position: absolute;
   margin-top: 3%;
   padding-left: 15%;
-
 }
 
-#diary_title{
-        width: 800px;
-        height: 40px;
-    }
+#diary_title {
+  width: 800px;
+  height: 40px;
+}
 
-.new-activity_date-content select{
-        width: 100px;
-        height: 30px;
+.new-activity_date-content select {
+  width: 100px;
+  height: 30px;
 }
 
 #diary_content {
-        width: 800px;
-        height: 300px;
-    }
+  width: 800px;
+  height: 300px;
+}
 
-.ui-autocomplete-input{
+.ui-autocomplete-input {
   width: 800px;
   height: 40px;
   margin-bottom: 5%;
 }
 
-.diary-image-field{
-  border:dashed white;
+.diary-image-field {
+  border: dashed white;
   text-align: center;
 }
 
-.add-sub-image{
+.add-sub-image {
   text-align: center;
 }
 
-.sub-images{
+.sub-images {
   width: 20%;
 }
 
-.new-submit{
+.new-submit {
   margin-top: 50px;
 }
