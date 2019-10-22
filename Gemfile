@@ -9,6 +9,7 @@ gem 'rails', '~> 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'unicorn'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -50,7 +51,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'dotenv-rails'
   gem 'letter_opener_web'
   gem 'capistrano', '3.6.0'
   gem 'capistrano-bundler'
@@ -86,7 +86,10 @@ end
   gem 'gon'
 
   gem 'fog-aws'
-  gem 'unicorn'
   gem 'mini_racer', platforms: :ruby
   gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+
+  gem 'sprockets'
+  gem 'scss'
+  gem 'dotenv-rails'

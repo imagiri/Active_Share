@@ -1,7 +1,7 @@
 class TaggingsController < ApplicationController
 
   def create
-    
+
 
   end
 
@@ -12,6 +12,3 @@ class TaggingsController < ApplicationController
   end
 
 end
-
-
-タグ機能

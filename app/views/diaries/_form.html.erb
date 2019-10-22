@@ -11,8 +11,6 @@
   </div>
 </div>
 <% end %>
-<% binding.pry %>
-
 
 <%= form_with(model: @diary,local: true) do |form| %>
 
@@ -55,7 +53,7 @@
 
   <div class="sub-image-form">
     <%= form.label :sub_image %>
-    <%= form.file_field :sub_image,　id: :sub_image, multiple: true, accept: "image/*"%>
+    <%= form.file_field :sub_image, id: :sub_image, multiple: true, accept: "image/*"%>
     <%= hidden_field_tag :sub_image_hidden,@diary.sub_image %>
   </div>
 

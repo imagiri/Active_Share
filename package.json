@@ -2,7 +2,8 @@
   "name": "Active_Share",
   "private": true,
   "dependencies": {
-    "bootstrap": "4",
-    "jquery": "^3.4.1"
+    "bootstrap": "3",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
   }
 }

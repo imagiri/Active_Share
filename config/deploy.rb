@@ -2,14 +2,14 @@
 lock '3.6.0'
 
 # デプロイするアプリケーション名
-set :application, 'activeshare'
+set :application, 'Active_Share'
 
 # cloneするgitのレポジトリ
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/imagiri/Active_Share.git'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, ENV['BRANCH'] || 'master'
+set :branch, ENV['BRANCH'] || 'diary'
 
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/activeshare'
@@ -24,11 +24,23 @@ set :keep_releases, 5
 # Rubyのバージョン
 set :rbenv_ruby, '2.6.4'
 set :rbenv_type, :info
+set :rbenv_path, '/usr/local/rbenv'
+
+# set :default_env, {
+#   # rbenv_root: "/home/user/.rbenv",
+#   # path: "/home/user/.rbenv/bin:$PATH",
+#   # region: ENV["S3_REGION"],
+#     aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+#     aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+# }
+
+
+
 
 # 出力するログのレベル。エラーログを詳細に見たい場合は :debug に設定する。
 # 本番環境用のものであれば、 :info程度が普通。
 # ただし挙動をしっかり確認したいのであれば :debug に設定する。
-set :log_level, :info
+set :log_level, :debug
 
 namespace :deploy do
   desc 'Restart application'
