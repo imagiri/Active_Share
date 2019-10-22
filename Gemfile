@@ -52,6 +52,11 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
   gem 'letter_opener_web'
+  gem 'capistrano', '3.6.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :test do
@@ -79,4 +84,7 @@ end
   gem 'delayed_job_active_record'
   gem 'rails-erd'
   gem 'gon'
+
   gem 'fog-aws'
+  gem 'unicorn'
+  gem 'mini_racer', platforms: :ruby
