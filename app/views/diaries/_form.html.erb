@@ -11,6 +11,7 @@
   </div>
 </div>
 <% end %>
+<% binding.pry %>
 
 
 <%= form_with(model: @diary,local: true) do |form| %>
@@ -21,7 +22,7 @@
   <div class="new-content">
 
     <div class="diary-image-field" id="main_image_view" onClick="$('#main_image').click()">
-    <%= image_tag @diary.main_image.url, class: "back-icon" %>
+      <%= image_tag @diary.main_image.url, class: "back-icon" %>
     </div>
 
     <div class="main-img-form">

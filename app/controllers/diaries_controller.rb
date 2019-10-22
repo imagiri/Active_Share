@@ -6,17 +6,17 @@ protect_from_forgery :except => [:create]
   def new
     @diary = Diary.new
     @diary.tags.build
-    # @image = @diary.images.build
+    @image = @diary.images.build
   end
 
   def create
     @diary = current_user.diaries.build(diaries_params)
-    # @image = @diary.images.build(images_params)
+    @image = @diary.images.build(images_params)
     tag_list = params[:tag_list].split(",")
     if @diary.save
       # @image.save(images_params)
       @diary.save_tags(tag_list)
-      flash[:success] = "日記を投稿しました"
+      flash[:success] = "活動記録を投稿しました"
       redirect_to diaries_url
     else
       render 'diaries/new'
