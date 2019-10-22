@@ -79,3 +79,4 @@ end
   gem 'delayed_job_active_record'
   gem 'rails-erd'
   gem 'gon'
+  gem 'fog-aws'

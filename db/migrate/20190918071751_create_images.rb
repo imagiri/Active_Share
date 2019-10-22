@@ -6,6 +6,7 @@ class CreateImages < ActiveRecord::Migration[5.2]
       t.text :memo
       t.references :diary, foreign_key: true
 
+
       t.timestamps
     end
   end
