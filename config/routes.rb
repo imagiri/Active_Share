@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   devise_scope :user do
   authenticated :user do
     root :to => 'diaries#index', as: :authenticated_root
-  end
+    end
   unauthenticated :user do
     root :to => 'diaries#top', as: :unauthenticated_root
+    end
   end
-end
   post '/users/guest_sign_in', to: 'users#guest_sign_in'
   resources :users
   resources :diaries do

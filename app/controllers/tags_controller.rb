@@ -15,10 +15,6 @@ class TagsController < ApplicationController
     end
   end
 
-  # def index
-  #   @tag = Tag.all
-  # end
-
   def destroy
 
   end

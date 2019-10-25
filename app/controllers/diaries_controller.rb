@@ -6,15 +6,12 @@ protect_from_forgery :except => [:create]
   def new
     @diary = Diary.new
     @diary.tags.build
-    # @image = @diary.images.builds
   end
 
   def create
     @diary = current_user.diaries.build(diaries_params)
-    # @image = @diary.images.build(images_params)
     tag_list = params[:tag_list].split(",")
     if @diary.save
-      # @image.save(images_params)
       @diary.save_tags(tag_list)
       flash[:success] = "活動記録を投稿しました"
       redirect_to diaries_url
@@ -68,10 +65,6 @@ protect_from_forgery :except => [:create]
   def diaries_params
     params.require(:diary).permit(:content, :title, :activity_date, :main_image, :user_id, {sub_image: []})
   end
-
-  # def images_params
-  #   params.require(:image).permit(:main_image, :memo, :diary_id, { :sub_image=> [] })
-  # end
 
   def set_diary
     @diary = Diary.find(params[:id])
