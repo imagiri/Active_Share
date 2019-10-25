@@ -24,7 +24,6 @@ protect_from_forgery :except => [:create]
     @tag_list = @diary.tags.pluck(:tag_name)
     @comments = @diary.comments
     @comment = @diary.comments.build
-    @image = Image.find_by(diary_id: @diary.id )
     @favorite = current_user.favorites.find_by(diary_id: @diary.id)
   end
 
