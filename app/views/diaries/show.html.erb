@@ -12,7 +12,7 @@
         <%= render 'favorite_form', diary: @diary, favorite: @favorite %>
     </div>
     <h5 class="show-user"><%= @diary.user.name %></h5>
-    <p><%= @diary.activity_date %></p>
+    <p><%= @diary.activity_date.to_s(:default) %></p>
   </div>
 
   <div class="show-content-area">

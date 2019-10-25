@@ -28,7 +28,7 @@
             <%= image_tag(diary.main_image.url,class:"diary-index-image", height: "300px", width: "100%") %>
         <p><%= diary.title %></p>
         <% end %>
-        <p class="inde"><%= diary.activity_date %></p>
+        <p class="inde"><%= diary.activity_date%></p>
         <p><%= link_to diary.user.name, user_path(diary.user.id)  %></p>
         <p>
           <%= link_to "編集", edit_diary_path(diary.id) %>
