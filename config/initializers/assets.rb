@@ -15,6 +15,8 @@ Rails.application.config.assets.precompile += %w( colorbox.css )
 Rails.application.config.assets.precompile += %w( jquery.colorbox-min.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
 Rails.application.config.assets.precompile += %w( override.css )
+Rails.application.config.assets.precompile += %w( sample_img.jpg )
+
 
 
 # Precompile additional assets.
