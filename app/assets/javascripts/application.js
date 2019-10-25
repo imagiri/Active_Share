@@ -13,10 +13,8 @@
 //= require jquery/dist/jquery.js
 //= require bootstrap/dist/js/bootstrap.min
 //= require rails-ujs
-//= require activestorage
 //= require diaries.coffee
 //= require diaries.js
-//= require users.js
 //= require jquery-ui
 //= require tag-it
 //= require_tree .
