@@ -11,6 +11,10 @@
       <td><h3><%=@user.name %></h3></td>
       <% if @user.id == current_user.id || current_user.admin == true %>
         <td><%= link_to "編集する", edit_user_path(@user.id) %></td>
+
+      <% else %>
+        <td><%= render partial: 'users/follow_form', locals: { user: @user} %></td>
+
       <% end %>
     </tr>
   </table>

@@ -6,12 +6,16 @@ protect_from_forgery :except => [:create]
   def new
     @diary = Diary.new
     @diary.tags.build
-    @image = @diary.images.build
+
+    # @image = @diary.images.builds
+
   end
 
   def create
     @diary = current_user.diaries.build(diaries_params)
-    @image = @diary.images.build(images_params)
+
+    # @image = @diary.images.build(images_params)
+
     tag_list = params[:tag_list].split(",")
     if @diary.save
       # @image.save(images_params)

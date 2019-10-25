@@ -1,2 +1,4 @@
-server '18.176.36.104', user: 'app', roles: %w{app db web}
+
+server '3.115.255.229', user: 'app', roles: %w{app db web}
+
 set :ssh_options, keys: '/Users/imakirikeitarou/.ssh/id_rsa'

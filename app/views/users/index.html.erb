@@ -8,13 +8,19 @@
     <%= f.label :name_cont, "Name" %>
     <%= f.text_field :name_cont, class: "form-control" %>
     <div class="birth-form">
-      <p><%= f.label :birth_place_cont, "birth_places" %></p>
-      <p><%= f.select :birth_place, User.birth_places.keys, {include_blank: true} %></p>
+
+      <p><%= f.label :birth_place, "birth_places" %></p>
+      <p><%= f.select :birth_place_matches, User.birth_places.keys, {include_blank: true} %></p>
+
     </div>
     <div class="age-form"
       <p><%= f.label :age_cont, "age" %></p>
       <p><%= f.select :age, User.ages.keys, {include_blank: true} %></p>
+
+    </div>
+
   </div>
+
 
   <div class="actions"><%= f.submit "Search" %></div>
 <% end %>

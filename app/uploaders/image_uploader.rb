@@ -52,6 +52,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
 
   def default_url
-    "sample_img"
+
+    "sample_img.jpg"
+
   end
 end
