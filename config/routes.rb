@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     root :to => 'diaries#top', as: :unauthenticated_root
   end
 end
-
+  post '/users/guest_sign_in', to: 'users#guest_sign_in'
   resources :users
   resources :diaries do
     resources :comments, only:[:create,:index]
