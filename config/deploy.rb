@@ -9,7 +9,9 @@ set :application, 'Active_Share'
 set :repo_url, 'https://github.com/imagiri/Active_Share.git'
 
 # deployするブランチ。デフォルトはmasterなのでなくても可。
+
 set :branch, ENV['BRANCH'] || 'diary'
+
 
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/activeshare'
@@ -25,6 +27,7 @@ set :keep_releases, 5
 set :rbenv_ruby, '2.6.4'
 set :rbenv_type, :info
 set :rbenv_path, '/usr/local/rbenv'
+
 
 # set :default_env, {
 #   # rbenv_root: "/home/user/.rbenv",

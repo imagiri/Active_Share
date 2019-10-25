@@ -8,9 +8,11 @@
     <% end %>
   <% else %>
   <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), method: :delete ) do |f| %>
+
     <div class="unfollow">
       <%= f.submit "UnFollow"%>
     </div>
+
    <% end %>
  <% end %>
 </div>
