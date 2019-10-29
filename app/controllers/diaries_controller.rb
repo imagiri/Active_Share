@@ -6,10 +6,12 @@ protect_from_forgery :except => [:create]
   def new
     @diary = Diary.new
     @diary.tags.build
+
   end
 
   def create
     @diary = current_user.diaries.build(diaries_params)
+
     tag_list = params[:tag_list].split(",")
     if @diary.save
       @diary.save_tags(tag_list)

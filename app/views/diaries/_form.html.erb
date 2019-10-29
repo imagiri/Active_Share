@@ -15,8 +15,9 @@
 <%= form_with(model: @diary,local: true) do |form| %>
 
   <%= form.hidden_field :user_id %>
-  <div class="new-body">
+
     <div class="new-top"><%= image_tag("diary_logo.png", height: "50px") %></div>
+
   <div class="new-content">
 
     <div class="diary-image-field" id="main_image_view" onClick="$('#main_image').click()">
@@ -53,7 +54,9 @@
 
   <div class="sub-image-form">
     <%= form.label :sub_image %>
+
     <%= form.file_field :sub_image, id: :sub_image, multiple: true, accept: "image/*"%>
+
     <%= hidden_field_tag :sub_image_hidden,@diary.sub_image %>
   </div>
 

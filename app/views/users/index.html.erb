@@ -2,6 +2,7 @@
   <%= image_tag("user_logo.png") %>
 </div>
 <div class="index-body">
+
   <div class="index-side">
     <%= search_form_for @search do |f| %>
     <div class="form-group">
@@ -20,6 +21,7 @@
 
     <div class="actions"><%= f.submit "Search" %></div>
     <% end %>
+
   </div>
 
   <div class="index-content">

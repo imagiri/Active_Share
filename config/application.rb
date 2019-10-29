@@ -23,7 +23,9 @@ module ActiveShare
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
 
+
     config.time_zone = 'Asia/Tokyo'
+
 
     config.i18n.default_locale = :ja
 

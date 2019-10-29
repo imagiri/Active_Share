@@ -37,8 +37,10 @@
                     <div class="dropdown-divider"></div>
                     <p class="dropdown-item"><%= link_to "ログアウト",destroy_user_session_path, method: :delete%></p>
                     <% else %>
+
                     <p class="header_link"><%= link_to image_tag("top_logo3.png", width: "80px"), new_user_session_path %></p>
                     <p class="header_link"><%= link_to image_tag("top_logo2.png", width: "80px"), new_user_registration_path %></p>
+
                     <% end %>
                   </div>
             </ul>
@@ -51,10 +53,12 @@
         </div>
         <% end %>
         <% if alert %>
+
         <div class="alert alert-danger alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <%= alert %>
         </div>
+
         <% end %>
 
       </header>
