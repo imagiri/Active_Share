@@ -24,14 +24,16 @@
 
   <div class="index-content">
     <% @users.each do |user| %>
-    <%= link_to(user_path(user.id)) do %>
-    <div class="user-index-show">
-      <%= image_tag(user.icon.url, class: "user-index-img", width: "100%", height: "130px") %>
-      <p><%=link_to user.name, user_path(user.id) %></p>
-      <%= user.age %>
-      <%= user.birth_place %>
-      <%= render partial: 'users/follow_form', locals: { user: user} %>
-    </div>
+    <% unless user.id == current_user.id %>
+      <%= link_to(user_path(user.id)) do %>
+        <div class="user-index-show">
+          <%= image_tag(user.icon.url, class: "user-index-img", width: "100%", height: "130px") %>
+          <p><%=link_to user.name, user_path(user.id) %></p>
+          <%= user.age %>
+          <%= user.birth_place %>
+          <%= render partial: 'users/follow_form', locals: { user: user} %>
+        </div>
+      <% end %>
     <% end %>
     <% end %>
     <div class="paginate">

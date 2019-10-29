@@ -64,3 +64,19 @@
     margin: 0;
   }
 }
+
+.link-area {
+  height: 40px;
+  width:100%;
+  position: relative;
+  text-align: right;
+}
+
+.link-area{
+  p {
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0
+  }
+}

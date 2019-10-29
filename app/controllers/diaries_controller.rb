@@ -50,9 +50,9 @@ protect_from_forgery :except => [:create]
   def index
     @search = Diary.includes(:user).references(:user).ransack(params[:q])
     if params[:q]
-      @diaries = Diary.page(params[:page]).ransack(params[:q]).result
+      @diaries = Diary.ransack(params[:q]).result.sort_post
     else
-      @diaries = Diary.page(params[:page])
+      @diaries = Diary.sort_post
     end
   end
 

@@ -10,7 +10,6 @@ class Diary < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
-  has_many :images, dependent: :destroy
 
   validates :title, presence: true, length:{maximum: 30}
   validates :content, presence: true, length:{maximum: 3000}
@@ -36,5 +35,8 @@ class Diary < ApplicationRecord
   def favorite?(diary, user)
     diary.favorites.find_by(user_id: user.id)
   end
+
+  scope :sort_post, -> {order(created_at: "DESC")}
+
 
 end
