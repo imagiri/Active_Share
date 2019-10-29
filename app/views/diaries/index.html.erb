@@ -34,10 +34,16 @@
         <p class="inde"><%= diary.activity_date%></p>
 
         <p><%= link_to diary.user.name, user_path(diary.user.id)  %></p>
-        <p>
-          <%= link_to "編集", edit_diary_path(diary.id) %>
-          <%= link_to "削除", diary_path(diary.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }%>
-        </p>
+        <div class= "link-area">
+          <p>
+            <% if diary.user_id == current_user.id || current_user.admin == true %>
+              <%= link_to "編集", edit_diary_path(diary.id) %>
+              <%= link_to "削除", diary_path(diary.id), method: :delete ,data: { confirm: '本当に削除していいですか？'}%>
+            <% else %>
+              <%= render 'favorite_form', diary: diary, favorite: @favorite %>
+            <% end %>
+          </p>
+        </div>
         </div>
     <% end %>
 </div>

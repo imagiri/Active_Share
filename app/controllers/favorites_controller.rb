@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-  # before_action :set_diary, only: [:create, :destroy]
   before_action :authenticate_user!
   respond_to? :js
 

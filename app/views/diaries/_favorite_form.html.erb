@@ -1,3 +1,4 @@
+<% @diary = diary %>
 <% unless @diary.user == current_user %>
   <% if @diary.favorite?(@diary, current_user) %>
   <li class="like_off">
